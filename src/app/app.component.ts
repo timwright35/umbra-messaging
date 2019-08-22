@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { UmbraToastService } from 'umbra-messaging';
 
 @Component({
   selector: 'umbra-root',
@@ -6,5 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'umbra';
+  constructor(private umbraToastService: UmbraToastService) {}
+
+  showToast() {
+    this.umbraToastService.showToast({
+      text: 'Toast message',
+      type: 'success',
+    });
+  }
 }

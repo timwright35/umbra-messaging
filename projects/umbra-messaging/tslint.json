@@ -1,0 +1,17 @@
+{
+  "extends": "../../tslint.json",
+  "rules": {
+    "directive-selector": [
+      true,
+      "attribute",
+      "umbraMessaging",
+      "camelCase"
+    ],
+    "component-selector": [
+      true,
+      "element",
+      "umbra-messaging",
+      "kebab-case"
+    ]
+  }
+}

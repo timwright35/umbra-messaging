@@ -1,0 +1,24 @@
+{
+  "name": "umbra-messaging",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "@angular/animations": "~8.1.3",
+    "@angular/cdk": "~8.1.3",
+    "@angular/common": "^8.1.3",
+    "@angular/core": "^8.1.3",
+    "@angular/material": "^8.1.3"
+  },
+  "main": "bundles/umbra-messaging.umd.js",
+  "module": "fesm5/umbra-messaging.js",
+  "es2015": "fesm2015/umbra-messaging.js",
+  "esm5": "esm5/umbra-messaging.js",
+  "esm2015": "esm2015/umbra-messaging.js",
+  "fesm5": "fesm5/umbra-messaging.js",
+  "fesm2015": "fesm2015/umbra-messaging.js",
+  "typings": "umbra-messaging.d.ts",
+  "metadata": "umbra-messaging.metadata.json",
+  "sideEffects": false,
+  "dependencies": {
+    "tslib": "^1.9.0"
+  }
+}
