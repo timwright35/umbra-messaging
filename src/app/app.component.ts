@@ -17,6 +17,7 @@ export class AppComponent {
       position: {
         top: 50
       },
+      closable: false,
       toastData: {
         text: 'Oh no! There was an error in the system!',
         type: 'warning',
@@ -28,6 +29,7 @@ export class AppComponent {
     this.umbraToastService.showToast(Object.assign({}, defaultToastConfig, {
       verticalPosition: 'bottom',
       horizontalPosition: 'right',
+      timeout: 5000,
       toastData: {
         text: 'Just wanted to inform you there is a wall there.',
         type: 'info',
@@ -44,5 +46,9 @@ export class AppComponent {
         type: 'success',
       }
     }));
+  }
+
+  closeAll() {
+    this.umbraToastService.closeAllToasts();
   }
 }

@@ -1,6 +1,10 @@
-import { TemplateRef } from '@angular/core';
-import { ToastConfigInterface } from '../interfaces/toast-config.interface';
+import {
+    ElementRef,
+    TemplateRef
+} from '@angular/core';
 import { ToastType } from '../types/toast.type';
+import { VerticalPositionType } from '../types/vertical-position.type';
+import { HorizontalPositionType } from '../types/horizontal-position.type';
 
 export class ToastData {
     type: ToastType;
@@ -9,14 +13,26 @@ export class ToastData {
     templateContext?: {};
 }
 
-export const defaultToastConfig: ToastConfigInterface = {
+export class ToastConfig {
+    verticalPosition: VerticalPositionType;
+    horizontalPosition: HorizontalPositionType;
+    attachToElement?: ElementRef;
+    closable?: boolean;
+    timeout?: number;
+    position?: {
+        top?: number;
+        bottom?: number;
+        left?: number;
+        right?: number;
+    };
+    toastData: ToastData;
+}
+
+export const defaultToastConfig: ToastConfig = {
     verticalPosition: 'top',
     horizontalPosition: 'right',
+    closable: true,
     position: {},
-    animation: {
-        fadeOut: 2500,
-        fadeIn: 300,
-    },
     toastData: {
         type: 'success'
     }

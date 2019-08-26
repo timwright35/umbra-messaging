@@ -2,7 +2,10 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { UmbraToastComponent } from './umbra-toast.component';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { MatIconModule } from '@angular/material';
+import {
+    MatIconModule,
+    MatProgressBarModule
+} from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UmbraToastService } from '../shared/services/umbra-toast.service';
 
@@ -12,7 +15,8 @@ import { UmbraToastService } from '../shared/services/umbra-toast.service';
         CommonModule,
         OverlayModule,
         MatIconModule,
-        FlexLayoutModule
+        FlexLayoutModule,
+        MatProgressBarModule
     ],
     entryComponents: [ UmbraToastComponent ],
     providers: [UmbraToastService]

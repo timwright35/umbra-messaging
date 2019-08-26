@@ -1,18 +1,19 @@
-<ng-container *ngIf="data.text; else templateRef">
+<ng-container *ngIf="data.toastData.text; else templateRef">
+    <mat-progress-bar [value]="progressBarValue" *ngIf="data.timeout"></mat-progress-bar>
     <div #toast fxLayout="row" fxLayoutAlign="center center">
         <div class="toast-data-icon" fxLayout="column" fxLayoutAlign="center center" #dataIcon>
             <mat-icon>{{ iconType }}</mat-icon>
         </div>
         <div class="toast-text" fxLayout="column" fxLayoutAlign="center center" #text>
-            {{ data.text }}
+            {{ data.toastData.text }}
         </div>
         <div class="toast-close-icon" fxLayout="column" fxLayoutAlign="center center" #closeIcon>
-            <mat-icon (click)="close()">close</mat-icon>
+            <mat-icon (click)="close()" *ngIf="data.closable">close</mat-icon>
         </div>
     </div>
 </ng-container>
 
 <ng-template #templateRef>
-    <ng-container *ngTemplateOutlet="data.template; context: data.templateContext">
+    <ng-container *ngTemplateOutlet="data.toastData.template; context: data.toastData.templateContext">
     </ng-container>
 </ng-template>
