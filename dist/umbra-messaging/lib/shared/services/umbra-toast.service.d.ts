@@ -10,7 +10,7 @@ export declare class UmbraToastService {
     private lastToast;
     private toastConfig;
     constructor(overlay: Overlay, parentInjector: Injector);
-    showToast(toastData: ToastData, toastConfig?: ToastConfigInterface): ToastRef;
+    showToast(toastConfig: ToastConfigInterface): ToastRef;
     getPositionStrategy(): import("@angular/cdk/overlay").GlobalPositionStrategy;
     getPosition(): string;
     getInjector(data: ToastData, toastRef: ToastRef, parentInjector: Injector): PortalInjector;

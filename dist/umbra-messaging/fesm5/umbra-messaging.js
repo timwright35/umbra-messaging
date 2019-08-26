@@ -79,6 +79,9 @@ var defaultToastConfig = {
         fadeOut: 2500,
         fadeIn: 300,
     },
+    toastData: {
+        type: 'success'
+    }
 };
 /** @type {?} */
 var TOAST_CONFIG_TOKEN = new InjectionToken('toast-config');
@@ -159,10 +162,10 @@ var UmbraToastComponent = /** @class */ (function () {
     UmbraToastComponent.decorators = [
         { type: Component, args: [{
                     selector: 'umbra-messaging-toast',
-                    template: "<div class=\"toast\">\n    <mat-icon>{{ iconType }}</mat-icon>\n    <div>{{ data.text }}</div>\n    <mat-icon (click)=\"close()\">close</mat-icon>\n</div>\n",
+                    template: "<div class=\"toast\" [class]=\"data.type\">\r\n    <div>{{ data.text }}</div>\r\n    <mat-icon (click)=\"close()\">close</mat-icon>\r\n</div>\r\n",
                     animations: [toastAnimations.fadeToast],
                     changeDetection: ChangeDetectionStrategy.OnPush,
-                    styles: [".toast{position:relative;display:-webkit-box;display:flex;justify-content:space-around;margin-bottom:20px;padding:10px 15px 10px 48px;width:290px;background:#fff;border-width:1px;border-style:solid;border-color:#ddd #d6d6d6 #cfcfcf;box-shadow:0 2px 4px rgba(0,0,0,.11)}"]
+                    styles: [".toast{position:relative;display:-webkit-box;display:flex;justify-content:space-around;margin-bottom:20px;padding:10px 15px;width:200px;min-width:200px;background:#fff;border-width:1px;border-style:solid;border-color:#ddd #d6d6d6 #cfcfcf;box-shadow:0 2px 4px rgba(0,0,0,.11)}"]
                 }] }
     ];
     /** @nocollapse */
@@ -198,16 +201,15 @@ var UmbraToastService = /** @class */ (function () {
         this.parentInjector = parentInjector;
     }
     /**
-     * @param {?} toastData
-     * @param {?=} toastConfig
+     * @param {?} toastConfig
      * @return {?}
      */
     UmbraToastService.prototype.showToast = /**
-     * @param {?} toastData
-     * @param {?=} toastConfig
+     * @param {?} toastConfig
      * @return {?}
      */
-    function (toastData, toastConfig) {
+    function (toastConfig) {
+        console.log('Config', toastConfig);
         if (toastConfig === null || toastConfig === undefined) {
             this.toastConfig = defaultToastConfig;
         }
@@ -218,7 +220,7 @@ var UmbraToastService = /** @class */ (function () {
         /** @type {?} */
         var toastRef = new ToastRef(overlayRef);
         /** @type {?} */
-        var injector = this.getInjector(toastData, toastRef, this.parentInjector);
+        var injector = this.getInjector(toastConfig.toastData, toastRef, this.parentInjector);
         /** @type {?} */
         var toastPortal = new ComponentPortal(UmbraToastComponent, null, injector);
         overlayRef.attach(toastPortal);
@@ -340,6 +342,8 @@ if (false) {
     ToastConfigInterface.prototype.position;
     /** @type {?|undefined} */
     ToastConfigInterface.prototype.animation;
+    /** @type {?} */
+    ToastConfigInterface.prototype.toastData;
 }
 
 /**
@@ -352,5 +356,5 @@ if (false) {
  * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
  */
 
-export { UmbraToastModule, UmbraToastService, UmbraToastComponent as ɵa, toastAnimations as ɵb, ToastData as ɵc, ToastRef as ɵd };
+export { TOAST_CONFIG_TOKEN, ToastData, UmbraToastModule, UmbraToastService, defaultToastConfig, UmbraToastComponent as ɵa, toastAnimations as ɵb, ToastRef as ɵc };
 //# sourceMappingURL=umbra-messaging.js.map

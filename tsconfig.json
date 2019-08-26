@@ -24,7 +24,8 @@
       ],
       "umbra-messaging/*": [
         "dist/umbra-messaging/*"
-      ]
+      ],
+      "lib/*": [ "projects/umbra-messaging/src/*" ]
     }
   },
   "angularCompilerOptions": {

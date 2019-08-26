@@ -1,4 +1,4 @@
-import { InjectionToken, TemplateRef } from '@angular/core';
+import { TemplateRef } from '@angular/core';
 import { ToastConfigInterface } from '../interfaces/toast-config.interface';
 import { ToastType } from '../types/toast.type';
 
@@ -10,14 +10,16 @@ export class ToastData {
 }
 
 export const defaultToastConfig: ToastConfigInterface = {
-    position: {
-        top: 20,
-        right: 20,
-    },
+    verticalPosition: 'top',
+    horizontalPosition: 'right',
+    position: {},
     animation: {
         fadeOut: 2500,
         fadeIn: 300,
     },
+    toastData: {
+        type: 'success'
+    }
 };
 
-export const TOAST_CONFIG_TOKEN = new InjectionToken<ToastConfigInterface>('toast-config');
+export const DEFAULT_MARGIN = 25;

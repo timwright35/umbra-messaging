@@ -1,5 +1,18 @@
-<div class="toast">
-    <mat-icon>{{ iconType }}</mat-icon>
-    <div>{{ data.text }}</div>
-    <mat-icon (click)="close()">close</mat-icon>
-</div>
+<ng-container *ngIf="data.text; else templateRef">
+    <div #toast fxLayout="row" fxLayoutAlign="center center">
+        <div class="toast-data-icon" fxLayout="column" fxLayoutAlign="center center" #dataIcon>
+            <mat-icon>{{ iconType }}</mat-icon>
+        </div>
+        <div class="toast-text" fxLayout="column" fxLayoutAlign="center center" #text>
+            {{ data.text }}
+        </div>
+        <div class="toast-close-icon" fxLayout="column" fxLayoutAlign="center center" #closeIcon>
+            <mat-icon (click)="close()">close</mat-icon>
+        </div>
+    </div>
+</ng-container>
+
+<ng-template #templateRef>
+    <ng-container *ngTemplateOutlet="data.template; context: data.templateContext">
+    </ng-container>
+</ng-template>

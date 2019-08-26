@@ -1,74 +1,93 @@
 import {
-  Inject,
-  Injectable,
-  Injector
+    Inject,
+    Injectable,
+    Injector
 } from '@angular/core';
 import { Overlay } from '@angular/cdk/overlay';
 import {
-  ComponentPortal,
-  PortalInjector
+    ComponentPortal,
+    PortalInjector
 } from '@angular/cdk/portal';
 import { ToastRef } from '../classes/toast-ref';
 import {
-  defaultToastConfig,
-  TOAST_CONFIG_TOKEN,
-  ToastData
+    DEFAULT_MARGIN,
+    defaultToastConfig,
+    ToastData
 } from '../classes/toast-config';
 import { ToastConfigInterface } from '../interfaces/toast-config.interface';
 import { UmbraToastComponent } from '../../umbra-toast/umbra-toast.component';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class UmbraToastService {
-  private lastToast: ToastRef;
-  private toastConfig: ToastConfigInterface;
+    constructor(
+        private overlay: Overlay,
+        private parentInjector: Injector
+    ) {}
 
-  constructor(
-      private overlay: Overlay,
-      private parentInjector: Injector
-  ) {}
+    showToast(toastConfig: ToastConfigInterface) {
+        if (toastConfig === null || toastConfig === undefined) {
+            toastConfig = defaultToastConfig;
+        }
 
-  showToast(toastData: ToastData, toastConfig?: ToastConfigInterface) {
-    if (toastConfig === null || toastConfig === undefined) {
-      this.toastConfig = defaultToastConfig;
+        const overlayPosition = this.overlay.position().global();
+        if (toastConfig.verticalPosition === 'center') {
+            overlayPosition.centerVertically();
+        } else {
+            if (toastConfig.verticalPosition === 'top') {
+                if (toastConfig.position.top) {
+                    overlayPosition.top(toastConfig.position.top + 'px');
+                } else {
+                    overlayPosition.top(DEFAULT_MARGIN + 'px');
+                }
+            }
+
+            if (toastConfig.verticalPosition === 'bottom') {
+                if (toastConfig.position.bottom) {
+                    overlayPosition.bottom(toastConfig.position.bottom + 'px');
+                } else {
+                    overlayPosition.bottom(DEFAULT_MARGIN + 'px');
+                }
+            }
+        }
+
+        if (toastConfig.horizontalPosition === 'center') {
+            overlayPosition.centerHorizontally();
+        } else {
+            if (toastConfig.horizontalPosition === 'right') {
+                if (toastConfig.position.right) {
+                    overlayPosition.right(toastConfig.position.right + 'px');
+                } else {
+                    overlayPosition.right(DEFAULT_MARGIN + 'px');
+                }
+            }
+
+            if (toastConfig.horizontalPosition === 'left') {
+                if (toastConfig.position.left) {
+                    overlayPosition.left(toastConfig.position.left + 'px');
+                } else {
+                    overlayPosition.left(DEFAULT_MARGIN + 'px');
+                }
+            }
+        }
+
+        const overlayRef = this.overlay.create({positionStrategy: overlayPosition});
+        const toastRef = new ToastRef(overlayRef);
+
+        const injector = this.getInjector(toastConfig.toastData, toastRef,
+            this.parentInjector);
+        const toastPortal = new ComponentPortal(UmbraToastComponent, null, injector);
+
+        overlayRef.attach(toastPortal);
+
+        return toastRef;
     }
 
-    const positionStrategy = this.getPositionStrategy();
-    const overlayRef = this.overlay.create({ positionStrategy });
+    getInjector(data: ToastData, toastRef: ToastRef, parentInjector: Injector) {
+        const tokens = new WeakMap();
 
-    const toastRef = new ToastRef(overlayRef);
+        tokens.set(ToastData, data);
+        tokens.set(ToastRef, toastRef);
 
-    const injector = this.getInjector(toastData, toastRef, this.parentInjector);
-    const toastPortal = new ComponentPortal(UmbraToastComponent, null, injector);
-
-    overlayRef.attach(toastPortal);
-
-    return toastRef;
-  }
-
-  getPositionStrategy() {
-    return this.overlay.position()
-        .global()
-        .top(this.getPosition())
-        .right(this.toastConfig.position.right + 'px');
-  }
-
-  getPosition() {
-    const lastToastIsVisible = this.lastToast && this.lastToast.isVisible();
-    const position = lastToastIsVisible
-        ? this.lastToast.getPosition().bottom
-        : this.toastConfig.position.top;
-
-    return position + 'px';
-  }
-
-  getInjector(data: ToastData, toastRef: ToastRef, parentInjector: Injector) {
-    const tokens = new WeakMap();
-
-    tokens.set(ToastData, data);
-    tokens.set(ToastRef, toastRef);
-
-    return new PortalInjector(parentInjector, tokens);
-  }
+        return new PortalInjector(parentInjector, tokens);
+    }
 }

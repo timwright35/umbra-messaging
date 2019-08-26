@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { UmbraToastService } from 'umbra-messaging';
+import { defaultToastConfig } from 'lib/lib/shared/classes/toast-config';
+import { UmbraToastService } from 'lib/lib/shared/services/umbra-toast.service';
 
 @Component({
   selector: 'umbra-root',
@@ -9,10 +10,39 @@ import { UmbraToastService } from 'umbra-messaging';
 export class AppComponent {
   constructor(private umbraToastService: UmbraToastService) {}
 
-  showToast() {
-    this.umbraToastService.showToast({
-      text: 'Toast message',
-      type: 'success',
-    });
+  showWarningToast() {
+    this.umbraToastService.showToast(Object.assign({}, defaultToastConfig, {
+      verticalPosition: 'top',
+      horizontalPosition: 'right',
+      position: {
+        top: 50
+      },
+      toastData: {
+        text: 'Oh no! There was an error in the system!',
+        type: 'warning',
+      }
+    }));
+  }
+
+  showInfoToast() {
+    this.umbraToastService.showToast(Object.assign({}, defaultToastConfig, {
+      verticalPosition: 'bottom',
+      horizontalPosition: 'right',
+      toastData: {
+        text: 'Just wanted to inform you there is a wall there.',
+        type: 'info',
+      }
+    }));
+  }
+
+  showSuccessToast() {
+    this.umbraToastService.showToast(Object.assign({}, defaultToastConfig, {
+      verticalPosition: 'top',
+      horizontalPosition: 'left',
+      toastData: {
+        text: 'We did it!',
+        type: 'success',
+      }
+    }));
   }
 }

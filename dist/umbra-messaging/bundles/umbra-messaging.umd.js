@@ -78,6 +78,9 @@
             fadeOut: 2500,
             fadeIn: 300,
         },
+        toastData: {
+            type: 'success'
+        }
     };
     /** @type {?} */
     var TOAST_CONFIG_TOKEN = new core.InjectionToken('toast-config');
@@ -158,10 +161,10 @@
         UmbraToastComponent.decorators = [
             { type: core.Component, args: [{
                         selector: 'umbra-messaging-toast',
-                        template: "<div class=\"toast\">\n    <mat-icon>{{ iconType }}</mat-icon>\n    <div>{{ data.text }}</div>\n    <mat-icon (click)=\"close()\">close</mat-icon>\n</div>\n",
+                        template: "<div class=\"toast\" [class]=\"data.type\">\r\n    <div>{{ data.text }}</div>\r\n    <mat-icon (click)=\"close()\">close</mat-icon>\r\n</div>\r\n",
                         animations: [toastAnimations.fadeToast],
                         changeDetection: core.ChangeDetectionStrategy.OnPush,
-                        styles: [".toast{position:relative;display:-webkit-box;display:flex;justify-content:space-around;margin-bottom:20px;padding:10px 15px 10px 48px;width:290px;background:#fff;border-width:1px;border-style:solid;border-color:#ddd #d6d6d6 #cfcfcf;box-shadow:0 2px 4px rgba(0,0,0,.11)}"]
+                        styles: [".toast{position:relative;display:-webkit-box;display:flex;justify-content:space-around;margin-bottom:20px;padding:10px 15px;width:200px;min-width:200px;background:#fff;border-width:1px;border-style:solid;border-color:#ddd #d6d6d6 #cfcfcf;box-shadow:0 2px 4px rgba(0,0,0,.11)}"]
                     }] }
         ];
         /** @nocollapse */
@@ -197,16 +200,15 @@
             this.parentInjector = parentInjector;
         }
         /**
-         * @param {?} toastData
-         * @param {?=} toastConfig
+         * @param {?} toastConfig
          * @return {?}
          */
         UmbraToastService.prototype.showToast = /**
-         * @param {?} toastData
-         * @param {?=} toastConfig
+         * @param {?} toastConfig
          * @return {?}
          */
-        function (toastData, toastConfig) {
+        function (toastConfig) {
+            console.log('Config', toastConfig);
             if (toastConfig === null || toastConfig === undefined) {
                 this.toastConfig = defaultToastConfig;
             }
@@ -217,7 +219,7 @@
             /** @type {?} */
             var toastRef = new ToastRef(overlayRef);
             /** @type {?} */
-            var injector = this.getInjector(toastData, toastRef, this.parentInjector);
+            var injector = this.getInjector(toastConfig.toastData, toastRef, this.parentInjector);
             /** @type {?} */
             var toastPortal = new portal.ComponentPortal(UmbraToastComponent, null, injector);
             overlayRef.attach(toastPortal);
@@ -339,14 +341,18 @@
         ToastConfigInterface.prototype.position;
         /** @type {?|undefined} */
         ToastConfigInterface.prototype.animation;
+        /** @type {?} */
+        ToastConfigInterface.prototype.toastData;
     }
 
+    exports.TOAST_CONFIG_TOKEN = TOAST_CONFIG_TOKEN;
+    exports.ToastData = ToastData;
     exports.UmbraToastModule = UmbraToastModule;
     exports.UmbraToastService = UmbraToastService;
+    exports.defaultToastConfig = defaultToastConfig;
     exports.ɵa = UmbraToastComponent;
     exports.ɵb = toastAnimations;
-    exports.ɵc = ToastData;
-    exports.ɵd = ToastRef;
+    exports.ɵc = ToastRef;
 
     Object.defineProperty(exports, '__esModule', { value: true });
 

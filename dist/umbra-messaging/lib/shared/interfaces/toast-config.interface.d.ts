@@ -1,3 +1,4 @@
+import { ToastData } from '../classes/toast-config';
 export interface ToastConfigInterface {
     position?: {
         top: number;
@@ -7,4 +8,5 @@ export interface ToastConfigInterface {
         fadeOut: number;
         fadeIn: number;
     };
+    toastData: ToastData;
 }
