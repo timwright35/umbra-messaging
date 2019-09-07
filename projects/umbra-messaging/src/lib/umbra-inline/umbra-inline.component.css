@@ -1,0 +1,15 @@
+.umbra-inline-message{
+    background-color: green;
+    padding: 10px;
+    margin-top: 2px;
+}
+
+.umbra-inline-group-message-container {
+    background-color: bisque;
+    padding: 10px;
+    margin: 2px;
+}
+
+.umbra-inline-group-message-title{
+    font-weight: bold;
+}

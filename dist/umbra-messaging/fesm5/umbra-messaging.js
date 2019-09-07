@@ -1,360 +1,480 @@
-import { InjectionToken, Component, ChangeDetectionStrategy, Injectable, Injector, ɵɵdefineInjectable, ɵɵinject, INJECTOR, NgModule } from '@angular/core';
+import { __spread } from 'tslib';
+import { ɵɵelement, ɵɵnextContext, ɵɵproperty, ɵɵgetCurrentView, ɵɵelementStart, ɵɵlistener, ɵɵrestoreView, ɵɵtext, ɵɵelementEnd, ɵɵelementContainerStart, ɵɵtemplate, ɵɵelementContainerEnd, ɵɵselect, ɵɵtextInterpolate, ɵɵtextInterpolate1, ɵɵelementContainer, ɵɵdirectiveInject, Renderer2, ChangeDetectorRef, ɵɵdefineComponent, ɵɵviewQuery, ɵɵqueryRefresh, ɵɵloadQuery, ɵɵtemplateRefExtractor, ɵɵreference, ɵsetClassMetadata, Component, ChangeDetectionStrategy, ViewChild, ɵɵdefineInjectable, ɵɵinject, Injector, Injectable, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule, Input } from '@angular/core';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
-import { trigger, state, style, transition, animate } from '@angular/animations';
-import { CommonModule } from '@angular/common';
-import { MatIconModule } from '@angular/material';
+import { isDefAndNotNull as isDefAndNotNull$1 } from 'lib/lib/shared/classes/common-functions';
+import { interval } from 'rxjs';
+import { NgIf, NgTemplateOutlet, CommonModule, NgForOf } from '@angular/common';
+import { DefaultLayoutDirective, DefaultLayoutAlignDirective } from '@angular/flex-layout/flex';
+import { MatIcon, MatProgressBar, MatIconModule, MatProgressBarModule } from '@angular/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 var ToastRef = /** @class */ (function () {
     function ToastRef(overlay) {
         this.overlay = overlay;
+        this.overlayRef = overlay;
     }
-    /**
-     * @return {?}
-     */
-    ToastRef.prototype.close = /**
-     * @return {?}
-     */
-    function () {
+    ToastRef.prototype.close = function () {
         this.overlay.dispose();
     };
-    /**
-     * @return {?}
-     */
-    ToastRef.prototype.isVisible = /**
-     * @return {?}
-     */
-    function () {
+    ToastRef.prototype.isVisible = function () {
         return this.overlay && this.overlay.overlayElement;
     };
-    /**
-     * @return {?}
-     */
-    ToastRef.prototype.getPosition = /**
-     * @return {?}
-     */
-    function () {
+    ToastRef.prototype.getPosition = function () {
         return this.overlay.overlayElement.getBoundingClientRect();
     };
     return ToastRef;
 }());
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    ToastRef.prototype.overlay;
-}
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 var ToastData = /** @class */ (function () {
     function ToastData() {
     }
     return ToastData;
 }());
-if (false) {
-    /** @type {?} */
-    ToastData.prototype.type;
-    /** @type {?} */
-    ToastData.prototype.text;
-    /** @type {?} */
-    ToastData.prototype.template;
-    /** @type {?} */
-    ToastData.prototype.templateContext;
-}
-/** @type {?} */
+var ToastConfig = /** @class */ (function () {
+    function ToastConfig() {
+    }
+    return ToastConfig;
+}());
 var defaultToastConfig = {
-    position: {
-        top: 20,
-        right: 20,
-    },
-    animation: {
-        fadeOut: 2500,
-        fadeIn: 300,
-    },
+    verticalPosition: 'top',
+    horizontalPosition: 'right',
+    closable: true,
+    position: {},
     toastData: {
         type: 'success'
     }
 };
-/** @type {?} */
-var TOAST_CONFIG_TOKEN = new InjectionToken('toast-config');
+var DEFAULT_MARGIN = 25;
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/** @type {?} */
-var toastAnimations = {
-    fadeToast: trigger('fadeAnimation', [
-        state('default', style({ opacity: 1 })),
-        transition('void => *', [style({ opacity: 0 }), animate('{{ fadeIn }}ms')]),
-        transition('default => closing', animate('{{ fadeOut }}ms', style({ opacity: 0 }))),
-    ]),
-};
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
+var _c0 = ["toast"];
+var _c1 = ["dataIcon"];
+var _c2 = ["closeIcon"];
+var _c3 = ["text"];
+var _c4 = [4, "ngIf", "ngIfElse"];
+var _c5 = ["templateRef", ""];
+var _c6 = [3, "value", 4, "ngIf"];
+var _c7 = ["fxLayout", "row", "fxLayoutAlign", "center center"];
+var _c8 = ["toast", ""];
+var _c9 = ["fxLayout", "column", "fxLayoutAlign", "center center", 1, "toast-data-icon"];
+var _c10 = ["dataIcon", ""];
+var _c11 = ["fxLayout", "column", "fxLayoutAlign", "center center", 1, "toast-text"];
+var _c12 = ["text", ""];
+var _c13 = ["fxLayout", "column", "fxLayoutAlign", "center center", 1, "toast-close-icon"];
+var _c14 = ["closeIcon", ""];
+var _c15 = [3, "click", 4, "ngIf"];
+var _c16 = [3, "value"];
+function UmbraToastComponent_ng_container_0_mat_progress_bar_1_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelement(0, "mat-progress-bar", _c16);
+} if (rf & 2) {
+    var ctx_r22 = ɵɵnextContext(2);
+    ɵɵproperty("value", ctx_r22.progressBarValue);
+} }
+var _c17 = [3, "click"];
+function UmbraToastComponent_ng_container_0_mat_icon_13_Template(rf, ctx) { if (rf & 1) {
+    var _r29 = ɵɵgetCurrentView();
+    ɵɵelementStart(0, "mat-icon", _c17);
+    ɵɵlistener("click", function UmbraToastComponent_ng_container_0_mat_icon_13_Template_mat_icon_click_0_listener($event) { ɵɵrestoreView(_r29); var ctx_r28 = ɵɵnextContext(2); return ctx_r28.close(); });
+    ɵɵtext(1, "close");
+    ɵɵelementEnd();
+} }
+function UmbraToastComponent_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementContainerStart(0);
+    ɵɵtemplate(1, UmbraToastComponent_ng_container_0_mat_progress_bar_1_Template, 1, 1, "mat-progress-bar", _c6);
+    ɵɵelementStart(2, "div", _c7, _c8);
+    ɵɵelementStart(4, "div", _c9, _c10);
+    ɵɵelementStart(6, "mat-icon");
+    ɵɵtext(7);
+    ɵɵelementEnd();
+    ɵɵelementEnd();
+    ɵɵelementStart(8, "div", _c11, _c12);
+    ɵɵtext(10);
+    ɵɵelementEnd();
+    ɵɵelementStart(11, "div", _c13, _c14);
+    ɵɵtemplate(13, UmbraToastComponent_ng_container_0_mat_icon_13_Template, 2, 0, "mat-icon", _c15);
+    ɵɵelementEnd();
+    ɵɵelementEnd();
+    ɵɵelementContainerEnd();
+} if (rf & 2) {
+    var ctx_r19 = ɵɵnextContext();
+    ɵɵselect(1);
+    ɵɵproperty("ngIf", ctx_r19.data.timeout);
+    ɵɵselect(7);
+    ɵɵtextInterpolate(ctx_r19.iconType);
+    ɵɵselect(10);
+    ɵɵtextInterpolate1(" ", ctx_r19.data.toastData.text, " ");
+    ɵɵselect(13);
+    ɵɵproperty("ngIf", ctx_r19.data.closable);
+} }
+var _c18 = [4, "ngTemplateOutlet", "ngTemplateOutletContext"];
+function UmbraToastComponent_ng_template_1_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementContainer(0);
+} }
+function UmbraToastComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
+    ɵɵtemplate(0, UmbraToastComponent_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", _c18);
+} if (rf & 2) {
+    var ctx_r21 = ɵɵnextContext();
+    ɵɵproperty("ngTemplateOutlet", ctx_r21.data.toastData.template)("ngTemplateOutletContext", ctx_r21.data.toastData.templateContext);
+} }
 var UmbraToastComponent = /** @class */ (function () {
-    function UmbraToastComponent(data, ref) {
+    function UmbraToastComponent(data, toastRef, renderer, umbraToastService, changeDetectorRef) {
         this.data = data;
-        this.ref = ref;
-        this.animationState = 'default';
-        this.iconType = data.type === 'success' ? 'done' : data.type;
+        this.toastRef = toastRef;
+        this.renderer = renderer;
+        this.umbraToastService = umbraToastService;
+        this.changeDetectorRef = changeDetectorRef;
+        this.toastConfig = data;
+        this.iconType = data.toastData.type === 'success' ? 'done' : data.toastData.type;
     }
-    /**
-     * @return {?}
-     */
-    UmbraToastComponent.prototype.ngOnInit = /**
-     * @return {?}
-     */
-    function () {
+    UmbraToastComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.intervalId = setTimeout((/**
-         * @return {?}
-         */
-        function () { return _this.animationState = 'closing'; }), 5000);
-    };
-    /**
-     * @return {?}
-     */
-    UmbraToastComponent.prototype.ngOnDestroy = /**
-     * @return {?}
-     */
-    function () {
-        clearTimeout(this.intervalId);
-    };
-    /**
-     * @return {?}
-     */
-    UmbraToastComponent.prototype.close = /**
-     * @return {?}
-     */
-    function () {
-        this.ref.close();
-    };
-    /**
-     * @param {?} event
-     * @return {?}
-     */
-    UmbraToastComponent.prototype.onFadeFinished = /**
-     * @param {?} event
-     * @return {?}
-     */
-    function (event) {
-        var toState = event.toState;
-        /** @type {?} */
-        var isFadeOut = ((/** @type {?} */ (toState))) === 'closing';
-        /** @type {?} */
-        var itFinished = this.animationState === 'closing';
-        if (isFadeOut && itFinished) {
-            this.close();
+        if (isDefAndNotNull$1(this.data.timeout)) {
+            this.progressBarValue = 100;
+            var timeoutSub$_1 = interval(1000).subscribe(function (seconds) {
+                _this.progressBarValue = 100 - seconds * 100 / (_this.data.timeout / 1000);
+                _this.changeDetectorRef.markForCheck();
+                if (seconds >= (_this.data.timeout / 1000)) {
+                    _this.close();
+                    timeoutSub$_1.unsubscribe();
+                }
+            });
         }
     };
-    UmbraToastComponent.decorators = [
-        { type: Component, args: [{
-                    selector: 'umbra-messaging-toast',
-                    template: "<div class=\"toast\" [class]=\"data.type\">\r\n    <div>{{ data.text }}</div>\r\n    <mat-icon (click)=\"close()\">close</mat-icon>\r\n</div>\r\n",
-                    animations: [toastAnimations.fadeToast],
-                    changeDetection: ChangeDetectionStrategy.OnPush,
-                    styles: [".toast{position:relative;display:-webkit-box;display:flex;justify-content:space-around;margin-bottom:20px;padding:10px 15px;width:200px;min-width:200px;background:#fff;border-width:1px;border-style:solid;border-color:#ddd #d6d6d6 #cfcfcf;box-shadow:0 2px 4px rgba(0,0,0,.11)}"]
-                }] }
-    ];
-    /** @nocollapse */
-    UmbraToastComponent.ctorParameters = function () { return [
-        { type: ToastData },
-        { type: ToastRef }
-    ]; };
+    UmbraToastComponent.prototype.ngAfterViewInit = function () {
+        this.renderer.addClass(this.toast.nativeElement, 'toast');
+        this.renderer.addClass(this.toast.nativeElement, 'toast-type-' + this.toastConfig.toastData.type);
+        this.renderer.addClass(this.dataIcon.nativeElement, 'toast-data-icon-' + this.toastConfig.toastData.type);
+        this.renderer.addClass(this.closeIcon.nativeElement, 'toast-close-icon-' + this.toastConfig.toastData.type);
+    };
+    UmbraToastComponent.prototype.ngOnDestroy = function () {
+        // NO-OP.
+    };
+    UmbraToastComponent.prototype.close = function () {
+        this.umbraToastService.closeToast(this.toastRef);
+    };
+    /** @nocollapse */ UmbraToastComponent.ngFactoryDef = function UmbraToastComponent_Factory(t) { return new (t || UmbraToastComponent)(ɵɵdirectiveInject(ToastConfig), ɵɵdirectiveInject(ToastRef), ɵɵdirectiveInject(Renderer2), ɵɵdirectiveInject(UmbraToastService), ɵɵdirectiveInject(ChangeDetectorRef)); };
+    /** @nocollapse */ UmbraToastComponent.ngComponentDef = ɵɵdefineComponent({ type: UmbraToastComponent, selectors: [["umbra-messaging-toast"]], viewQuery: function UmbraToastComponent_Query(rf, ctx) { if (rf & 1) {
+            ɵɵviewQuery(_c0, true);
+            ɵɵviewQuery(_c1, true);
+            ɵɵviewQuery(_c2, true);
+            ɵɵviewQuery(_c3, true);
+        } if (rf & 2) {
+            var _t;
+            ɵɵqueryRefresh((_t = ɵɵloadQuery())) && (ctx.toast = _t.first);
+            ɵɵqueryRefresh((_t = ɵɵloadQuery())) && (ctx.dataIcon = _t.first);
+            ɵɵqueryRefresh((_t = ɵɵloadQuery())) && (ctx.closeIcon = _t.first);
+            ɵɵqueryRefresh((_t = ɵɵloadQuery())) && (ctx.text = _t.first);
+        } }, consts: 3, vars: 2, template: function UmbraToastComponent_Template(rf, ctx) { if (rf & 1) {
+            ɵɵtemplate(0, UmbraToastComponent_ng_container_0_Template, 14, 4, "ng-container", _c4);
+            ɵɵtemplate(1, UmbraToastComponent_ng_template_1_Template, 1, 2, "ng-template", null, _c5, ɵɵtemplateRefExtractor);
+        } if (rf & 2) {
+            var _r20 = ɵɵreference(2);
+            ɵɵproperty("ngIf", ctx.data.toastData.text)("ngIfElse", _r20);
+        } }, directives: [NgIf, DefaultLayoutDirective, DefaultLayoutAlignDirective, MatIcon, MatProgressBar, NgTemplateOutlet], styles: [".toast[_ngcontent-%COMP%]{background:#fff;border-width:1px;border-style:solid;border-color:#ddd #d6d6d6 #cfcfcf;box-shadow:0 2px 4px rgba(0,0,0,.11);min-height:1em;height:3em}.toast-close-icon[_ngcontent-%COMP%], .toast-data-icon[_ngcontent-%COMP%]{padding:0 .5em}.toast-data-icon[_ngcontent-%COMP%] > mat-icon[_ngcontent-%COMP%]{border-radius:15px;padding:1px;border:1px solid #000}.toast-data-icon-success[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#20b2aa}.toast-data-icon-warning[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#dd8900}.toast-data-icon-info[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#749aa8}.toast-close-icon[_ngcontent-%COMP%]{cursor:pointer}.toast-close-icon-success[_ngcontent-%COMP%]{background-color:#00b173;height:100%;border-left:3px solid #2e8b57}.toast-close-icon-warning[_ngcontent-%COMP%]{background-color:#dd8900;height:100%;border-left:3px solid #f09c00}.toast-close-icon-info[_ngcontent-%COMP%]{background-color:#749aa8;height:100%;border-left:3px solid #557a88}.toast-type-success[_ngcontent-%COMP%]{background-color:green;color:#fff}.toast-text[_ngcontent-%COMP%]{padding:0 .5em}.toast-type-warning[_ngcontent-%COMP%]{background-color:orange;color:#fff}.toast-type-info[_ngcontent-%COMP%]{background-color:#add8e6;color:#fff}"], changeDetection: 0 });
     return UmbraToastComponent;
 }());
-if (false) {
-    /** @type {?} */
-    UmbraToastComponent.prototype.animationState;
-    /** @type {?} */
-    UmbraToastComponent.prototype.iconType;
-    /**
-     * @type {?}
-     * @private
-     */
-    UmbraToastComponent.prototype.intervalId;
-    /** @type {?} */
-    UmbraToastComponent.prototype.data;
-    /** @type {?} */
-    UmbraToastComponent.prototype.ref;
+/*@__PURE__*/ ɵsetClassMetadata(UmbraToastComponent, [{
+        type: Component,
+        args: [{
+                selector: 'umbra-messaging-toast',
+                templateUrl: './umbra-toast.component.html',
+                styleUrls: ['./umbra-toast.component.css'],
+                changeDetection: ChangeDetectionStrategy.OnPush
+            }]
+    }], function () { return [{ type: ToastConfig }, { type: ToastRef }, { type: Renderer2 }, { type: UmbraToastService }, { type: ChangeDetectorRef }]; }, { toast: [{
+            type: ViewChild,
+            args: ['toast', { static: false }]
+        }], dataIcon: [{
+            type: ViewChild,
+            args: ['dataIcon', { static: false }]
+        }], closeIcon: [{
+            type: ViewChild,
+            args: ['closeIcon', { static: false }]
+        }], text: [{
+            type: ViewChild,
+            args: ['text', { static: false }]
+        }] });
+
+function isDefAndNotNull(value) {
+    return value !== undefined && value !== null;
 }
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 var UmbraToastService = /** @class */ (function () {
     function UmbraToastService(overlay, parentInjector) {
         this.overlay = overlay;
         this.parentInjector = parentInjector;
+        this.openTopToasts = [];
+        this.openBottomToasts = [];
     }
-    /**
-     * @param {?} toastConfig
-     * @return {?}
-     */
-    UmbraToastService.prototype.showToast = /**
-     * @param {?} toastConfig
-     * @return {?}
-     */
-    function (toastConfig) {
-        console.log('Config', toastConfig);
+    UmbraToastService.prototype.showToast = function (toastConfig) {
         if (toastConfig === null || toastConfig === undefined) {
-            this.toastConfig = defaultToastConfig;
+            toastConfig = defaultToastConfig;
         }
-        /** @type {?} */
-        var positionStrategy = this.getPositionStrategy();
-        /** @type {?} */
-        var overlayRef = this.overlay.create({ positionStrategy: positionStrategy });
-        /** @type {?} */
+        var overlayPosition = this.getOverlayPosition(toastConfig);
+        var overlayRef = this.overlay.create({ positionStrategy: overlayPosition });
         var toastRef = new ToastRef(overlayRef);
-        /** @type {?} */
-        var injector = this.getInjector(toastConfig.toastData, toastRef, this.parentInjector);
-        /** @type {?} */
+        if (toastConfig.verticalPosition === 'top') {
+            this.openTopToasts.push(toastRef);
+        }
+        if (toastConfig.verticalPosition === 'bottom') {
+            this.openBottomToasts.push(toastRef);
+        }
+        var injector = this.getInjector(toastConfig, toastRef, this.parentInjector);
         var toastPortal = new ComponentPortal(UmbraToastComponent, null, injector);
         overlayRef.attach(toastPortal);
         return toastRef;
     };
-    /**
-     * @return {?}
-     */
-    UmbraToastService.prototype.getPositionStrategy = /**
-     * @return {?}
-     */
-    function () {
-        return this.overlay.position()
-            .global()
-            .top(this.getPosition())
-            .right(this.toastConfig.position.right + 'px');
+    UmbraToastService.prototype.closeToast = function (toastRef) {
+        this.openTopToasts = this.openTopToasts.filter(function (openToast) {
+            if (openToast !== toastRef) {
+                return openToast;
+            }
+        });
+        this.openBottomToasts = this.openBottomToasts.filter(function (openToast) {
+            if (openToast !== toastRef) {
+                return openToast;
+            }
+        });
+        toastRef.close();
     };
-    /**
-     * @return {?}
-     */
-    UmbraToastService.prototype.getPosition = /**
-     * @return {?}
-     */
-    function () {
-        /** @type {?} */
-        var lastToastIsVisible = this.lastToast && this.lastToast.isVisible();
-        /** @type {?} */
-        var position = lastToastIsVisible
-            ? this.lastToast.getPosition().bottom
-            : this.toastConfig.position.top;
-        return position + 'px';
+    UmbraToastService.prototype.closeAllToasts = function () {
+        __spread(this.openTopToasts, this.openBottomToasts).forEach(function (toastRef) {
+            toastRef.close();
+        });
+        this.openBottomToasts = [];
+        this.openTopToasts = [];
     };
-    /**
-     * @param {?} data
-     * @param {?} toastRef
-     * @param {?} parentInjector
-     * @return {?}
-     */
-    UmbraToastService.prototype.getInjector = /**
-     * @param {?} data
-     * @param {?} toastRef
-     * @param {?} parentInjector
-     * @return {?}
-     */
-    function (data, toastRef, parentInjector) {
-        /** @type {?} */
+    UmbraToastService.prototype.getInjector = function (data, toastRef, parentInjector) {
         var tokens = new WeakMap();
-        tokens.set(ToastData, data);
+        tokens.set(ToastConfig, data);
         tokens.set(ToastRef, toastRef);
         return new PortalInjector(parentInjector, tokens);
     };
-    UmbraToastService.decorators = [
-        { type: Injectable, args: [{
-                    providedIn: 'root'
-                },] }
-    ];
-    /** @nocollapse */
-    UmbraToastService.ctorParameters = function () { return [
-        { type: Overlay },
-        { type: Injector }
-    ]; };
-    /** @nocollapse */ UmbraToastService.ngInjectableDef = ɵɵdefineInjectable({ factory: function UmbraToastService_Factory() { return new UmbraToastService(ɵɵinject(Overlay), ɵɵinject(INJECTOR)); }, token: UmbraToastService, providedIn: "root" });
+    UmbraToastService.prototype.getOverlayPosition = function (toastConfig) {
+        var overlayPosition = this.overlay.position().global();
+        if (toastConfig.verticalPosition === 'center') {
+            overlayPosition.centerVertically();
+        }
+        else {
+            if (toastConfig.verticalPosition === 'top') {
+                var lastTopToastHeight = 0;
+                var lastTopToast = void 0;
+                if (this.openTopToasts.length > 0) {
+                    lastTopToast = this.openTopToasts[this.openTopToasts.length - 1];
+                }
+                if (isDefAndNotNull(lastTopToast)) {
+                    lastTopToastHeight = lastTopToast.getPosition().height;
+                }
+                var calculatedPosition = void 0;
+                if (toastConfig.position.top) {
+                    calculatedPosition = (this.openTopToasts.length * lastTopToastHeight) +
+                        toastConfig.position.top;
+                }
+                else {
+                    calculatedPosition = (this.openTopToasts.length * lastTopToastHeight);
+                }
+                overlayPosition.top(calculatedPosition + 'px');
+            }
+            if (toastConfig.verticalPosition === 'bottom') {
+                var lastBottomToastHeight = 0;
+                var lastBottomToast = void 0;
+                if (this.openBottomToasts.length > 0) {
+                    lastBottomToast = this.openBottomToasts[this.openBottomToasts.length - 1];
+                }
+                if (isDefAndNotNull(lastBottomToast)) {
+                    lastBottomToastHeight = lastBottomToast.getPosition().height;
+                }
+                var calculatedPosition = void 0;
+                if (toastConfig.position.bottom) {
+                    calculatedPosition = (this.openBottomToasts.length * lastBottomToastHeight) +
+                        toastConfig.position.bottom;
+                }
+                else {
+                    calculatedPosition = (this.openBottomToasts.length * lastBottomToastHeight);
+                }
+                overlayPosition.bottom(calculatedPosition + 'px');
+            }
+        }
+        if (toastConfig.horizontalPosition === 'center') {
+            overlayPosition.centerHorizontally();
+        }
+        else {
+            if (toastConfig.horizontalPosition === 'right') {
+                if (toastConfig.position.right) {
+                    overlayPosition.right(toastConfig.position.right + 'px');
+                }
+                else {
+                    overlayPosition.right(DEFAULT_MARGIN + 'px');
+                }
+            }
+            if (toastConfig.horizontalPosition === 'left') {
+                if (toastConfig.position.left) {
+                    overlayPosition.left(toastConfig.position.left + 'px');
+                }
+                else {
+                    overlayPosition.left(DEFAULT_MARGIN + 'px');
+                }
+            }
+        }
+        return overlayPosition;
+    };
+    /** @nocollapse */ UmbraToastService.ngInjectableDef = ɵɵdefineInjectable({ token: UmbraToastService, factory: function UmbraToastService_Factory(t) { return new (t || UmbraToastService)(ɵɵinject(Overlay), ɵɵinject(Injector)); }, providedIn: null });
     return UmbraToastService;
 }());
-if (false) {
-    /**
-     * @type {?}
-     * @private
-     */
-    UmbraToastService.prototype.lastToast;
-    /**
-     * @type {?}
-     * @private
-     */
-    UmbraToastService.prototype.toastConfig;
-    /**
-     * @type {?}
-     * @private
-     */
-    UmbraToastService.prototype.overlay;
-    /**
-     * @type {?}
-     * @private
-     */
-    UmbraToastService.prototype.parentInjector;
-}
+/*@__PURE__*/ ɵsetClassMetadata(UmbraToastService, [{
+        type: Injectable
+    }], function () { return [{ type: Overlay }, { type: Injector }]; }, null);
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
 var UmbraToastModule = /** @class */ (function () {
     function UmbraToastModule() {
     }
-    UmbraToastModule.decorators = [
-        { type: NgModule, args: [{
-                    declarations: [UmbraToastComponent],
-                    imports: [
-                        CommonModule,
-                        OverlayModule,
-                        MatIconModule
-                    ],
-                    entryComponents: [UmbraToastComponent]
-                },] }
-    ];
+    /** @nocollapse */ UmbraToastModule.ngModuleDef = ɵɵdefineNgModule({ type: UmbraToastModule });
+    /** @nocollapse */ UmbraToastModule.ngInjectorDef = ɵɵdefineInjector({ factory: function UmbraToastModule_Factory(t) { return new (t || UmbraToastModule)(); }, providers: [UmbraToastService], imports: [[
+                CommonModule,
+                OverlayModule,
+                MatIconModule,
+                FlexLayoutModule,
+                MatProgressBarModule
+            ]] });
     return UmbraToastModule;
 }());
+/*@__PURE__*/ ɵɵsetNgModuleScope(UmbraToastModule, { declarations: [UmbraToastComponent], imports: [CommonModule,
+        OverlayModule,
+        MatIconModule,
+        FlexLayoutModule,
+        MatProgressBarModule] });
+/*@__PURE__*/ ɵsetClassMetadata(UmbraToastModule, [{
+        type: NgModule,
+        args: [{
+                declarations: [UmbraToastComponent],
+                imports: [
+                    CommonModule,
+                    OverlayModule,
+                    MatIconModule,
+                    FlexLayoutModule,
+                    MatProgressBarModule
+                ],
+                entryComponents: [UmbraToastComponent],
+                providers: [UmbraToastService]
+            }]
+    }], null, null);
+
+var _c0$1 = [1, "umbra-messages-inline"];
+var _c1$1 = [3, "ngIf", "ngIfElse"];
+var _c2$1 = ["groupMessageContainer", ""];
+var _c3$1 = ["ngFor", "", 3, "ngForOf"];
+var _c4$1 = [1, "umbra-inline-message"];
+function UmbraInlineComponent_ng_template_1_ng_template_0_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "div", _c4$1);
+    ɵɵtext(1);
+    ɵɵelementEnd();
+} if (rf & 2) {
+    var message_r35 = ctx.$implicit;
+    ɵɵselect(1);
+    ɵɵtextInterpolate1(" ", message_r35["summary"], " ");
+} }
+function UmbraInlineComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
+    ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_Template, 2, 1, "ng-template", _c3$1);
+} if (rf & 2) {
+    var ctx_r31 = ɵɵnextContext();
+    ɵɵproperty("ngForOf", ctx_r31.umbraMessages);
+} }
+var _c5$1 = [1, "umbra-inline-group-message-container"];
+function UmbraInlineComponent_ng_template_2_ng_template_1_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "div", _c4$1);
+    ɵɵtext(1);
+    ɵɵelementEnd();
+} if (rf & 2) {
+    var message_r37 = ctx.$implicit;
+    ɵɵselect(1);
+    ɵɵtextInterpolate1(" ", message_r37["summary"], " ");
+} }
+function UmbraInlineComponent_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "div", _c5$1);
+    ɵɵtemplate(1, UmbraInlineComponent_ng_template_2_ng_template_1_Template, 2, 1, "ng-template", _c3$1);
+    ɵɵelementEnd();
+} if (rf & 2) {
+    var ctx_r33 = ɵɵnextContext();
+    ɵɵselect(1);
+    ɵɵproperty("ngForOf", ctx_r33.umbraMessages);
+} }
+var UmbraInlineComponent = /** @class */ (function () {
+    function UmbraInlineComponent() {
+        this.umbraMessages = [];
+        this.groupMessages = false;
+        this.shouldTimeout = false;
+        this.setTimeout = 2500;
+    }
+    UmbraInlineComponent.prototype.ngOnInit = function () {
+        if (this.shouldTimeout) {
+            // TODO(Tim): Set a timeout on showing the messages.
+        }
+    };
+    /** @nocollapse */ UmbraInlineComponent.ngFactoryDef = function UmbraInlineComponent_Factory(t) { return new (t || UmbraInlineComponent)(); };
+    /** @nocollapse */ UmbraInlineComponent.ngComponentDef = ɵɵdefineComponent({ type: UmbraInlineComponent, selectors: [["umbra-messaging-inline"]], inputs: { umbraMessages: "umbraMessages", groupMessages: "groupMessages", shouldTimeout: "shouldTimeout", setTimeout: "setTimeout" }, consts: 4, vars: 2, template: function UmbraInlineComponent_Template(rf, ctx) { if (rf & 1) {
+            ɵɵelementStart(0, "div", _c0$1);
+            ɵɵtemplate(1, UmbraInlineComponent_ng_template_1_Template, 1, 1, "ng-template", _c1$1);
+            ɵɵtemplate(2, UmbraInlineComponent_ng_template_2_Template, 2, 1, "ng-template", null, _c2$1, ɵɵtemplateRefExtractor);
+            ɵɵelementEnd();
+        } if (rf & 2) {
+            var _r32 = ɵɵreference(3);
+            ɵɵselect(1);
+            ɵɵproperty("ngIf", ctx.shouldTimeout)("ngIfElse", _r32);
+        } }, directives: [NgIf, NgForOf], styles: [""], changeDetection: 0 });
+    return UmbraInlineComponent;
+}());
+/*@__PURE__*/ ɵsetClassMetadata(UmbraInlineComponent, [{
+        type: Component,
+        args: [{
+                selector: 'umbra-messaging-inline',
+                templateUrl: './umbra-inline.component.html',
+                styleUrls: ['./umbra-inline.component.css'],
+                changeDetection: ChangeDetectionStrategy.OnPush
+            }]
+    }], function () { return []; }, { umbraMessages: [{
+            type: Input
+        }], groupMessages: [{
+            type: Input
+        }], shouldTimeout: [{
+            type: Input
+        }], setTimeout: [{
+            type: Input
+        }] });
+
+var UmbraInlineModule = /** @class */ (function () {
+    function UmbraInlineModule() {
+    }
+    /** @nocollapse */ UmbraInlineModule.ngModuleDef = ɵɵdefineNgModule({ type: UmbraInlineModule });
+    /** @nocollapse */ UmbraInlineModule.ngInjectorDef = ɵɵdefineInjector({ factory: function UmbraInlineModule_Factory(t) { return new (t || UmbraInlineModule)(); }, imports: [[
+                MatIconModule,
+                FlexLayoutModule,
+                CommonModule
+            ]] });
+    return UmbraInlineModule;
+}());
+/*@__PURE__*/ ɵɵsetNgModuleScope(UmbraInlineModule, { declarations: [UmbraInlineComponent], imports: [MatIconModule,
+        FlexLayoutModule,
+        CommonModule], exports: [UmbraInlineComponent] });
+/*@__PURE__*/ ɵsetClassMetadata(UmbraInlineModule, [{
+        type: NgModule,
+        args: [{
+                declarations: [UmbraInlineComponent],
+                imports: [
+                    MatIconModule,
+                    FlexLayoutModule,
+                    CommonModule
+                ],
+                exports: [UmbraInlineComponent]
+            }]
+    }], null, null);
+
+/*
+ * Public API Surface of umbra-messaging
+ */
 
 /**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-/**
- * @record
- */
-function ToastConfigInterface() { }
-if (false) {
-    /** @type {?|undefined} */
-    ToastConfigInterface.prototype.position;
-    /** @type {?|undefined} */
-    ToastConfigInterface.prototype.animation;
-    /** @type {?} */
-    ToastConfigInterface.prototype.toastData;
-}
-
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
+ * Generated bundle index. Do not edit.
  */
 
-/**
- * @fileoverview added by tsickle
- * @suppress {checkTypes,extraRequire,missingOverride,missingReturn,unusedPrivateMembers,uselessCode} checked by tsc
- */
-
-export { TOAST_CONFIG_TOKEN, ToastData, UmbraToastModule, UmbraToastService, defaultToastConfig, UmbraToastComponent as ɵa, toastAnimations as ɵb, ToastRef as ɵc };
+export { DEFAULT_MARGIN, ToastConfig, ToastData, UmbraInlineComponent, UmbraInlineModule, UmbraToastComponent, UmbraToastModule, UmbraToastService, defaultToastConfig };
 //# sourceMappingURL=umbra-messaging.js.map

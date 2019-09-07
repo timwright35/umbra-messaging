@@ -1,0 +1,7 @@
+var InlineMessage = /** @class */ (function () {
+    function InlineMessage() {
+    }
+    return InlineMessage;
+}());
+export { InlineMessage };
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5saW5lLW1lc3NhZ2UuanMiLCJzb3VyY2VSb290Ijoibmc6Ly91bWJyYS1tZXNzYWdpbmcvIiwic291cmNlcyI6WyJsaWIvc2hhcmVkL2NsYXNzZXMvaW5saW5lLW1lc3NhZ2UudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRUE7SUFBQTtJQUtBLENBQUM7SUFBRCxvQkFBQztBQUFELENBQUMsQUFMRCxJQUtDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgSW5saW5lVHlwZSB9IGZyb20gJ2xpYi9saWIvc2hhcmVkL3R5cGVzL2lubGluZS50eXBlJztcclxuXHJcbmV4cG9ydCBjbGFzcyBJbmxpbmVNZXNzYWdlIHtcclxuICAgIHRpdGxlPzogc3RyaW5nO1xyXG4gICAgc3VtbWFyeTogc3RyaW5nO1xyXG4gICAgaWNvbj86IHN0cmluZztcclxuICAgIHR5cGU6IElubGluZVR5cGU7XHJcbn1cclxuIl19

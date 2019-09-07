@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { defaultToastConfig } from 'lib/lib/shared/classes/toast-config';
 import { UmbraToastService } from 'lib/lib/shared/services/umbra-toast.service';
+import { InlineMessage } from 'umbra-messaging/lib/shared/classes/inline-message';
 
 @Component({
   selector: 'umbra-root',
@@ -8,7 +9,20 @@ import { UmbraToastService } from 'lib/lib/shared/services/umbra-toast.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  constructor(private umbraToastService: UmbraToastService) {}
+  umbraMessages: Array<InlineMessage> = [];
+
+  constructor(private umbraToastService: UmbraToastService) {
+    this.umbraMessages.push({
+      title: 'Success',
+      summary: 'AHHHHHH',
+      type: 'success'
+    });
+    this.umbraMessages.push({
+      title: 'Error',
+      summary: 'NOOOO',
+      type: 'warning'
+    });
+  }
 
   showWarningToast() {
     this.umbraToastService.showToast(Object.assign({}, defaultToastConfig, {

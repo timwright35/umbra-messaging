@@ -1,0 +1,21 @@
+<div class="umbra-messages-inline">
+    <ng-template [ngIf]="!groupMessages" [ngIfElse]="groupMessageContainer">
+        <ng-template ngFor [ngForOf]="umbraMessages" let-message>
+            <ng-container *ngTemplateOutlet="inlineMessage;context:{message: message}"></ng-container>
+        </ng-template>
+    </ng-template>
+    <ng-template #groupMessageContainer>
+        <div class="umbra-inline-group-message-container">
+            <ng-template ngFor [ngForOf]="umbraMessages" let-message>
+                <ng-container *ngTemplateOutlet="inlineMessage;context:{message: message}"></ng-container>
+            </ng-template>
+        </div>
+    </ng-template>
+</div>
+
+<ng-template #inlineMessage let-message="message">
+    <div [ngClass]="{'umbra-inline-group-message': groupMessages, 'umbra-inline-message': !groupMessages}">
+        <span *ngIf="message['title']" class="umbra-inline-group-message-title">{{ message['title'] }}:</span>
+        {{ message['summary'] }}
+    </div>
+</ng-template>

@@ -119,6 +119,10 @@
               "devServerTarget": "umbra:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     },
@@ -126,7 +130,7 @@
       "projectType": "library",
       "root": "projects/umbra-messaging",
       "sourceRoot": "projects/umbra-messaging/src",
-      "prefix": "um",
+      "prefix": "umbra",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

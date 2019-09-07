@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "umbra-messaging": {
+      "hosting": {
+        "umbra": [
+          "umbra-messaging"
+        ]
+      }
+    }
+  }
+}

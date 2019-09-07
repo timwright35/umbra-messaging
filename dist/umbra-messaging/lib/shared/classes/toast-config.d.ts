@@ -1,11 +1,26 @@
-import { InjectionToken, TemplateRef } from '@angular/core';
-import { ToastConfigInterface } from '../interfaces/toast-config.interface';
+import { ElementRef, TemplateRef } from '@angular/core';
 import { ToastType } from '../types/toast.type';
+import { VerticalPositionType } from '../types/vertical-position.type';
+import { HorizontalPositionType } from '../types/horizontal-position.type';
 export declare class ToastData {
     type: ToastType;
     text?: string;
     template?: TemplateRef<any>;
     templateContext?: {};
 }
-export declare const defaultToastConfig: ToastConfigInterface;
-export declare const TOAST_CONFIG_TOKEN: InjectionToken<ToastConfigInterface>;
+export declare class ToastConfig {
+    verticalPosition: VerticalPositionType;
+    horizontalPosition: HorizontalPositionType;
+    attachToElement?: ElementRef;
+    closable?: boolean;
+    timeout?: number;
+    position?: {
+        top?: number;
+        bottom?: number;
+        left?: number;
+        right?: number;
+    };
+    toastData: ToastData;
+}
+export declare const defaultToastConfig: ToastConfig;
+export declare const DEFAULT_MARGIN = 25;

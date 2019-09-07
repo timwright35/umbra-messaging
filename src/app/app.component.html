@@ -2,3 +2,6 @@
 <button (click)="showInfoToast()">Show info toast</button>
 <button (click)="showSuccessToast()">Show success toast</button>
 <button (click)="closeAll()">Close all toasts</button>
+
+<umbra-messaging-inline [umbraMessages]="umbraMessages" [groupMessages]="true"></umbra-messaging-inline>
+<umbra-messaging-inline [umbraMessages]="umbraMessages" [groupMessages]="false"></umbra-messaging-inline>
