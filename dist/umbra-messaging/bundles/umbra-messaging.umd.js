@@ -1,8 +1,8 @@
 (function (global, factory) {
-    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/overlay'), require('@angular/cdk/portal'), require('lib/lib/shared/classes/common-functions'), require('rxjs'), require('@angular/common'), require('@angular/flex-layout/flex'), require('@angular/material'), require('@angular/flex-layout')) :
-    typeof define === 'function' && define.amd ? define('umbra-messaging', ['exports', '@angular/core', '@angular/cdk/overlay', '@angular/cdk/portal', 'lib/lib/shared/classes/common-functions', 'rxjs', '@angular/common', '@angular/flex-layout/flex', '@angular/material', '@angular/flex-layout'], factory) :
-    (global = global || self, factory(global['umbra-messaging'] = {}, global.ng.core, global.ng.cdk.overlay, global.ng.cdk.portal, global.commonFunctions, global.rxjs, global.ng.common, global.ng['flex-layout'].flex, global.ng.material, global.ng['flex-layout']));
-}(this, function (exports, core, overlay, portal, commonFunctions, rxjs, common, flex, material, flexLayout) { 'use strict';
+    typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/cdk/overlay'), require('@angular/cdk/portal'), require('lib/lib/shared/classes/common-functions'), require('rxjs'), require('@angular/common'), require('@angular/flex-layout/flex'), require('@angular/material'), require('@angular/flex-layout'), require('@angular/flex-layout/extended')) :
+    typeof define === 'function' && define.amd ? define('umbra-messaging', ['exports', '@angular/core', '@angular/cdk/overlay', '@angular/cdk/portal', 'lib/lib/shared/classes/common-functions', 'rxjs', '@angular/common', '@angular/flex-layout/flex', '@angular/material', '@angular/flex-layout', '@angular/flex-layout/extended'], factory) :
+    (global = global || self, factory(global['umbra-messaging'] = {}, global.ng.core, global.ng.cdk.overlay, global.ng.cdk.portal, global.commonFunctions, global.rxjs, global.ng.common, global.ng['flex-layout'].flex, global.ng.material, global.ng['flex-layout'], global.ng['flex-layout'].extended));
+}(this, function (exports, core, overlay, portal, commonFunctions, rxjs, common, flex, material, flexLayout, extended) { 'use strict';
 
     /*! *****************************************************************************
     Copyright (c) Microsoft Corporation. All rights reserved.
@@ -259,14 +259,14 @@
     function UmbraToastComponent_ng_container_0_mat_progress_bar_1_Template(rf, ctx) { if (rf & 1) {
         core.ɵɵelement(0, "mat-progress-bar", _c16);
     } if (rf & 2) {
-        var ctx_r22 = core.ɵɵnextContext(2);
-        core.ɵɵproperty("value", ctx_r22.progressBarValue);
+        var ctx_r33 = core.ɵɵnextContext(2);
+        core.ɵɵproperty("value", ctx_r33.progressBarValue);
     } }
     var _c17 = [3, "click"];
     function UmbraToastComponent_ng_container_0_mat_icon_13_Template(rf, ctx) { if (rf & 1) {
-        var _r29 = core.ɵɵgetCurrentView();
+        var _r40 = core.ɵɵgetCurrentView();
         core.ɵɵelementStart(0, "mat-icon", _c17);
-        core.ɵɵlistener("click", function UmbraToastComponent_ng_container_0_mat_icon_13_Template_mat_icon_click_0_listener($event) { core.ɵɵrestoreView(_r29); var ctx_r28 = core.ɵɵnextContext(2); return ctx_r28.close(); });
+        core.ɵɵlistener("click", function UmbraToastComponent_ng_container_0_mat_icon_13_Template_mat_icon_click_0_listener($event) { core.ɵɵrestoreView(_r40); var ctx_r39 = core.ɵɵnextContext(2); return ctx_r39.close(); });
         core.ɵɵtext(1, "close");
         core.ɵɵelementEnd();
     } }
@@ -288,15 +288,15 @@
         core.ɵɵelementEnd();
         core.ɵɵelementContainerEnd();
     } if (rf & 2) {
-        var ctx_r19 = core.ɵɵnextContext();
+        var ctx_r30 = core.ɵɵnextContext();
         core.ɵɵselect(1);
-        core.ɵɵproperty("ngIf", ctx_r19.data.timeout);
+        core.ɵɵproperty("ngIf", ctx_r30.data.timeout);
         core.ɵɵselect(7);
-        core.ɵɵtextInterpolate(ctx_r19.iconType);
+        core.ɵɵtextInterpolate(ctx_r30.iconType);
         core.ɵɵselect(10);
-        core.ɵɵtextInterpolate1(" ", ctx_r19.data.toastData.text, " ");
+        core.ɵɵtextInterpolate1(" ", ctx_r30.data.toastData.text, " ");
         core.ɵɵselect(13);
-        core.ɵɵproperty("ngIf", ctx_r19.data.closable);
+        core.ɵɵproperty("ngIf", ctx_r30.data.closable);
     } }
     var _c18 = [4, "ngTemplateOutlet", "ngTemplateOutletContext"];
     function UmbraToastComponent_ng_template_1_ng_container_0_Template(rf, ctx) { if (rf & 1) {
@@ -305,8 +305,8 @@
     function UmbraToastComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
         core.ɵɵtemplate(0, UmbraToastComponent_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", _c18);
     } if (rf & 2) {
-        var ctx_r21 = core.ɵɵnextContext();
-        core.ɵɵproperty("ngTemplateOutlet", ctx_r21.data.toastData.template)("ngTemplateOutletContext", ctx_r21.data.toastData.templateContext);
+        var ctx_r32 = core.ɵɵnextContext();
+        core.ɵɵproperty("ngTemplateOutlet", ctx_r32.data.toastData.template)("ngTemplateOutletContext", ctx_r32.data.toastData.templateContext);
     } }
     var UmbraToastComponent = /** @class */ (function () {
         function UmbraToastComponent(data, toastRef, renderer, umbraToastService, changeDetectorRef) {
@@ -360,8 +360,8 @@
                 core.ɵɵtemplate(0, UmbraToastComponent_ng_container_0_Template, 14, 4, "ng-container", _c4);
                 core.ɵɵtemplate(1, UmbraToastComponent_ng_template_1_Template, 1, 2, "ng-template", null, _c5, core.ɵɵtemplateRefExtractor);
             } if (rf & 2) {
-                var _r20 = core.ɵɵreference(2);
-                core.ɵɵproperty("ngIf", ctx.data.toastData.text)("ngIfElse", _r20);
+                var _r31 = core.ɵɵreference(2);
+                core.ɵɵproperty("ngIf", ctx.data.toastData.text)("ngIfElse", _r31);
             } }, directives: [common.NgIf, flex.DefaultLayoutDirective, flex.DefaultLayoutAlignDirective, material.MatIcon, material.MatProgressBar, common.NgTemplateOutlet], styles: [".toast[_ngcontent-%COMP%]{background:#fff;border-width:1px;border-style:solid;border-color:#ddd #d6d6d6 #cfcfcf;box-shadow:0 2px 4px rgba(0,0,0,.11);min-height:1em;height:3em}.toast-close-icon[_ngcontent-%COMP%], .toast-data-icon[_ngcontent-%COMP%]{padding:0 .5em}.toast-data-icon[_ngcontent-%COMP%] > mat-icon[_ngcontent-%COMP%]{border-radius:15px;padding:1px;border:1px solid #000}.toast-data-icon-success[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#20b2aa}.toast-data-icon-warning[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#dd8900}.toast-data-icon-info[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#749aa8}.toast-close-icon[_ngcontent-%COMP%]{cursor:pointer}.toast-close-icon-success[_ngcontent-%COMP%]{background-color:#00b173;height:100%;border-left:3px solid #2e8b57}.toast-close-icon-warning[_ngcontent-%COMP%]{background-color:#dd8900;height:100%;border-left:3px solid #f09c00}.toast-close-icon-info[_ngcontent-%COMP%]{background-color:#749aa8;height:100%;border-left:3px solid #557a88}.toast-type-success[_ngcontent-%COMP%]{background-color:green;color:#fff}.toast-text[_ngcontent-%COMP%]{padding:0 .5em}.toast-type-warning[_ngcontent-%COMP%]{background-color:orange;color:#fff}.toast-type-info[_ngcontent-%COMP%]{background-color:#add8e6;color:#fff}"], changeDetection: 0 });
         return UmbraToastComponent;
     }());
@@ -554,41 +554,101 @@
     var _c0$1 = [1, "umbra-messages-inline"];
     var _c1$1 = [3, "ngIf", "ngIfElse"];
     var _c2$1 = ["groupMessageContainer", ""];
-    var _c3$1 = ["ngFor", "", 3, "ngForOf"];
-    var _c4$1 = [1, "umbra-inline-message"];
+    var _c3$1 = ["inlineMessage", ""];
+    var _c4$1 = ["ngFor", "", 3, "ngForOf"];
+    var _c5$1 = [4, "ngTemplateOutlet", "ngTemplateOutletContext"];
+    function UmbraInlineComponent_ng_template_1_ng_template_0_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+        core.ɵɵelementContainer(0);
+    } }
+    var _c6$1 = function (a0) { return { message: a0 }; };
     function UmbraInlineComponent_ng_template_1_ng_template_0_Template(rf, ctx) { if (rf & 1) {
-        core.ɵɵelementStart(0, "div", _c4$1);
-        core.ɵɵtext(1);
-        core.ɵɵelementEnd();
+        core.ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_ng_container_0_Template, 1, 0, "ng-container", _c5$1);
     } if (rf & 2) {
-        var message_r35 = ctx.$implicit;
-        core.ɵɵselect(1);
-        core.ɵɵtextInterpolate1(" ", message_r35["summary"], " ");
+        var message_r48 = ctx.$implicit;
+        core.ɵɵnextContext(2);
+        var _r45 = core.ɵɵreference(5);
+        core.ɵɵproperty("ngTemplateOutlet", _r45)("ngTemplateOutletContext", core.ɵɵpureFunction1(2, _c6$1, message_r48));
     } }
     function UmbraInlineComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
-        core.ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_Template, 2, 1, "ng-template", _c3$1);
+        core.ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_Template, 1, 4, "ng-template", _c4$1);
     } if (rf & 2) {
-        var ctx_r31 = core.ɵɵnextContext();
-        core.ɵɵproperty("ngForOf", ctx_r31.umbraMessages);
+        var ctx_r42 = core.ɵɵnextContext();
+        core.ɵɵproperty("ngForOf", ctx_r42.umbraMessages);
     } }
-    var _c5$1 = [1, "umbra-inline-group-message-container"];
+    var _c7$1 = [1, "umbra-inline-group-message-container"];
+    function UmbraInlineComponent_ng_template_2_ng_template_1_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+        core.ɵɵelementContainer(0);
+    } }
     function UmbraInlineComponent_ng_template_2_ng_template_1_Template(rf, ctx) { if (rf & 1) {
-        core.ɵɵelementStart(0, "div", _c4$1);
+        core.ɵɵtemplate(0, UmbraInlineComponent_ng_template_2_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", _c5$1);
+    } if (rf & 2) {
+        var message_r51 = ctx.$implicit;
+        core.ɵɵnextContext(2);
+        var _r45 = core.ɵɵreference(5);
+        core.ɵɵproperty("ngTemplateOutlet", _r45)("ngTemplateOutletContext", core.ɵɵpureFunction1(2, _c6$1, message_r51));
+    } }
+    function UmbraInlineComponent_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+        core.ɵɵelementStart(0, "div", _c7$1);
+        core.ɵɵtemplate(1, UmbraInlineComponent_ng_template_2_ng_template_1_Template, 1, 4, "ng-template", _c4$1);
+        core.ɵɵelementEnd();
+    } if (rf & 2) {
+        var ctx_r44 = core.ɵɵnextContext();
+        core.ɵɵselect(1);
+        core.ɵɵproperty("ngForOf", ctx_r44.umbraMessages);
+    } }
+    var _c8$1 = [3, "ngClass"];
+    var _c9$1 = ["class", "umbra-inline-group-message-icon", 4, "ngIf"];
+    var _c10$1 = ["class", "umbra-inline-group-message-title", 4, "ngIf"];
+    var _c11$1 = ["class", "umbra-inline-group-message-summary", 4, "ngIf"];
+    var _c12$1 = [1, "umbra-inline-group-message-icon"];
+    function UmbraInlineComponent_ng_template_4_span_1_Template(rf, ctx) { if (rf & 1) {
+        core.ɵɵelementStart(0, "span", _c12$1);
+        core.ɵɵelementStart(1, "mat-icon");
+        core.ɵɵtext(2);
+        core.ɵɵelementEnd();
+        core.ɵɵelementEnd();
+    } if (rf & 2) {
+        var message_r53 = core.ɵɵnextContext().message;
+        core.ɵɵselect(2);
+        core.ɵɵtextInterpolate(message_r53["icon"]);
+    } }
+    var _c13$1 = [1, "umbra-inline-group-message-title"];
+    function UmbraInlineComponent_ng_template_4_span_2_Template(rf, ctx) { if (rf & 1) {
+        core.ɵɵelementStart(0, "span", _c13$1);
         core.ɵɵtext(1);
         core.ɵɵelementEnd();
     } if (rf & 2) {
-        var message_r37 = ctx.$implicit;
+        var message_r53 = core.ɵɵnextContext().message;
         core.ɵɵselect(1);
-        core.ɵɵtextInterpolate1(" ", message_r37["summary"], " ");
+        core.ɵɵtextInterpolate1("", message_r53["title"], ":");
     } }
-    function UmbraInlineComponent_ng_template_2_Template(rf, ctx) { if (rf & 1) {
-        core.ɵɵelementStart(0, "div", _c5$1);
-        core.ɵɵtemplate(1, UmbraInlineComponent_ng_template_2_ng_template_1_Template, 2, 1, "ng-template", _c3$1);
+    var _c14$1 = [1, "umbra-inline-group-message-summary"];
+    function UmbraInlineComponent_ng_template_4_span_3_Template(rf, ctx) { if (rf & 1) {
+        core.ɵɵelementStart(0, "span", _c14$1);
+        core.ɵɵtext(1);
         core.ɵɵelementEnd();
     } if (rf & 2) {
-        var ctx_r33 = core.ɵɵnextContext();
+        var message_r53 = core.ɵɵnextContext().message;
         core.ɵɵselect(1);
-        core.ɵɵproperty("ngForOf", ctx_r33.umbraMessages);
+        core.ɵɵtextInterpolate1(" ", message_r53["summary"], "");
+    } }
+    var _c15$1 = function (a0, a1, a2, a3, a4, a5) { return { "umbra-inline-group-message": a0, "umbra-inline-message": a1, "umbra-messaging-error": a2, "umbra-messaging-info": a3, "umbra-messaging-warning": a4, "umbra-messaging-success": a5 }; };
+    function UmbraInlineComponent_ng_template_4_Template(rf, ctx) { if (rf & 1) {
+        core.ɵɵelementStart(0, "div", _c8$1);
+        core.ɵɵtemplate(1, UmbraInlineComponent_ng_template_4_span_1_Template, 3, 1, "span", _c9$1);
+        core.ɵɵtemplate(2, UmbraInlineComponent_ng_template_4_span_2_Template, 2, 1, "span", _c10$1);
+        core.ɵɵtemplate(3, UmbraInlineComponent_ng_template_4_span_3_Template, 2, 1, "span", _c11$1);
+        core.ɵɵelementEnd();
+    } if (rf & 2) {
+        var message_r53 = ctx.message;
+        var ctx_r46 = core.ɵɵnextContext();
+        core.ɵɵproperty("ngClass", core.ɵɵpureFunction6(4, _c15$1, ctx_r46.groupMessages, !ctx_r46.groupMessages, message_r53["type"] === "error", message_r53["type"] === "info", message_r53["type"] === "warning", message_r53["type"] === "success"));
+        core.ɵɵselect(1);
+        core.ɵɵproperty("ngIf", message_r53["icon"]);
+        core.ɵɵselect(2);
+        core.ɵɵproperty("ngIf", message_r53["title"]);
+        core.ɵɵselect(3);
+        core.ɵɵproperty("ngIf", message_r53["summary"]);
     } }
     var UmbraInlineComponent = /** @class */ (function () {
         function UmbraInlineComponent() {
@@ -603,16 +663,17 @@
             }
         };
         /** @nocollapse */ UmbraInlineComponent.ngFactoryDef = function UmbraInlineComponent_Factory(t) { return new (t || UmbraInlineComponent)(); };
-        /** @nocollapse */ UmbraInlineComponent.ngComponentDef = core.ɵɵdefineComponent({ type: UmbraInlineComponent, selectors: [["umbra-messaging-inline"]], inputs: { umbraMessages: "umbraMessages", groupMessages: "groupMessages", shouldTimeout: "shouldTimeout", setTimeout: "setTimeout" }, consts: 4, vars: 2, template: function UmbraInlineComponent_Template(rf, ctx) { if (rf & 1) {
+        /** @nocollapse */ UmbraInlineComponent.ngComponentDef = core.ɵɵdefineComponent({ type: UmbraInlineComponent, selectors: [["umbra-messaging-inline"]], inputs: { umbraMessages: "umbraMessages", groupMessages: "groupMessages", shouldTimeout: "shouldTimeout", setTimeout: "setTimeout" }, consts: 6, vars: 2, template: function UmbraInlineComponent_Template(rf, ctx) { if (rf & 1) {
                 core.ɵɵelementStart(0, "div", _c0$1);
                 core.ɵɵtemplate(1, UmbraInlineComponent_ng_template_1_Template, 1, 1, "ng-template", _c1$1);
                 core.ɵɵtemplate(2, UmbraInlineComponent_ng_template_2_Template, 2, 1, "ng-template", null, _c2$1, core.ɵɵtemplateRefExtractor);
                 core.ɵɵelementEnd();
+                core.ɵɵtemplate(4, UmbraInlineComponent_ng_template_4_Template, 4, 11, "ng-template", null, _c3$1, core.ɵɵtemplateRefExtractor);
             } if (rf & 2) {
-                var _r32 = core.ɵɵreference(3);
+                var _r43 = core.ɵɵreference(3);
                 core.ɵɵselect(1);
-                core.ɵɵproperty("ngIf", ctx.shouldTimeout)("ngIfElse", _r32);
-            } }, directives: [common.NgIf, common.NgForOf], styles: [""], changeDetection: 0 });
+                core.ɵɵproperty("ngIf", !ctx.groupMessages)("ngIfElse", _r43);
+            } }, directives: [common.NgIf, common.NgForOf, common.NgTemplateOutlet, extended.DefaultClassDirective, common.NgClass, material.MatIcon], styles: [".umbra-inline-message[_ngcontent-%COMP%]{border-radius:5px;padding:10px;margin-top:2px;border:1px solid #000}.umbra-inline-group-message-container[_ngcontent-%COMP%]{border-radius:5px;border:1px solid #000}.umbra-inline-group-message[_ngcontent-%COMP%]{padding:10px}.umbra-inline-group-message-title[_ngcontent-%COMP%]{font-weight:700}.umbra-messaging-error[_ngcontent-%COMP%]{background-color:red}.umbra-messaging-warning[_ngcontent-%COMP%]{background-color:orange}.umbra-messaging-success[_ngcontent-%COMP%]{background-color:green}.umbra-messaging-info[_ngcontent-%COMP%]{background-color:#add8e6}"], changeDetection: 0 });
         return UmbraInlineComponent;
     }());
     /*@__PURE__*/ core.ɵsetClassMetadata(UmbraInlineComponent, [{

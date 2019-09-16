@@ -2,7 +2,8 @@ import {
   Component,
   ChangeDetectionStrategy,
   Input,
-  OnInit
+  OnInit,
+  ChangeDetectorRef
 } from '@angular/core';
 import { InlineMessage } from 'lib/lib/shared/classes/inline-message';
 
@@ -15,13 +16,24 @@ import { InlineMessage } from 'lib/lib/shared/classes/inline-message';
 export class UmbraInlineComponent implements OnInit {
   @Input() umbraMessages: Array<InlineMessage> = [];
   @Input() groupMessages = false;
-  @Input() shouldTimeout = false;
-  @Input() setTimeout = 2500;
-  constructor() { }
+  constructor(
+      private changeDetectorRef: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
-    if (this.shouldTimeout) {
-      // TODO(Tim): Set a timeout on showing the messages.
+    // tslint:disable-next-line:prefer-for-of
+    for (let i = 0; i < this.umbraMessages.length; i++) {
+      const message = this.umbraMessages[i];
+      if (message.timeout !== null && message.timeout !== undefined) {
+        // TODO(Tim): Find way to make a progress bar per message.
+        const timerId = setTimeout(() => {
+          this.umbraMessages = this.umbraMessages.filter((messageToClear: InlineMessage) => {
+            return messageToClear.title !== message.title;
+          });
+          clearTimeout(timerId);
+          this.changeDetectorRef.markForCheck();
+        }, message.timeout);
+      }
     }
   }
 }

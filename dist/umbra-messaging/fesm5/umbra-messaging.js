@@ -1,13 +1,14 @@
 import { __spread } from 'tslib';
-import { ɵɵelement, ɵɵnextContext, ɵɵproperty, ɵɵgetCurrentView, ɵɵelementStart, ɵɵlistener, ɵɵrestoreView, ɵɵtext, ɵɵelementEnd, ɵɵelementContainerStart, ɵɵtemplate, ɵɵelementContainerEnd, ɵɵselect, ɵɵtextInterpolate, ɵɵtextInterpolate1, ɵɵelementContainer, ɵɵdirectiveInject, Renderer2, ChangeDetectorRef, ɵɵdefineComponent, ɵɵviewQuery, ɵɵqueryRefresh, ɵɵloadQuery, ɵɵtemplateRefExtractor, ɵɵreference, ɵsetClassMetadata, Component, ChangeDetectionStrategy, ViewChild, ɵɵdefineInjectable, ɵɵinject, Injector, Injectable, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule, Input } from '@angular/core';
+import { ɵɵelement, ɵɵnextContext, ɵɵproperty, ɵɵgetCurrentView, ɵɵelementStart, ɵɵlistener, ɵɵrestoreView, ɵɵtext, ɵɵelementEnd, ɵɵelementContainerStart, ɵɵtemplate, ɵɵelementContainerEnd, ɵɵselect, ɵɵtextInterpolate, ɵɵtextInterpolate1, ɵɵelementContainer, ɵɵdirectiveInject, Renderer2, ChangeDetectorRef, ɵɵdefineComponent, ɵɵviewQuery, ɵɵqueryRefresh, ɵɵloadQuery, ɵɵtemplateRefExtractor, ɵɵreference, ɵsetClassMetadata, Component, ChangeDetectionStrategy, ViewChild, ɵɵdefineInjectable, ɵɵinject, Injector, Injectable, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule, ɵɵpureFunction1, ɵɵpureFunction6, Input } from '@angular/core';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { isDefAndNotNull as isDefAndNotNull$1 } from 'lib/lib/shared/classes/common-functions';
 import { interval } from 'rxjs';
-import { NgIf, NgTemplateOutlet, CommonModule, NgForOf } from '@angular/common';
+import { NgIf, NgTemplateOutlet, CommonModule, NgForOf, NgClass } from '@angular/common';
 import { DefaultLayoutDirective, DefaultLayoutAlignDirective } from '@angular/flex-layout/flex';
 import { MatIcon, MatProgressBar, MatIconModule, MatProgressBarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DefaultClassDirective } from '@angular/flex-layout/extended';
 
 var ToastRef = /** @class */ (function () {
     function ToastRef(overlay) {
@@ -67,14 +68,14 @@ var _c16 = [3, "value"];
 function UmbraToastComponent_ng_container_0_mat_progress_bar_1_Template(rf, ctx) { if (rf & 1) {
     ɵɵelement(0, "mat-progress-bar", _c16);
 } if (rf & 2) {
-    var ctx_r22 = ɵɵnextContext(2);
-    ɵɵproperty("value", ctx_r22.progressBarValue);
+    var ctx_r33 = ɵɵnextContext(2);
+    ɵɵproperty("value", ctx_r33.progressBarValue);
 } }
 var _c17 = [3, "click"];
 function UmbraToastComponent_ng_container_0_mat_icon_13_Template(rf, ctx) { if (rf & 1) {
-    var _r29 = ɵɵgetCurrentView();
+    var _r40 = ɵɵgetCurrentView();
     ɵɵelementStart(0, "mat-icon", _c17);
-    ɵɵlistener("click", function UmbraToastComponent_ng_container_0_mat_icon_13_Template_mat_icon_click_0_listener($event) { ɵɵrestoreView(_r29); var ctx_r28 = ɵɵnextContext(2); return ctx_r28.close(); });
+    ɵɵlistener("click", function UmbraToastComponent_ng_container_0_mat_icon_13_Template_mat_icon_click_0_listener($event) { ɵɵrestoreView(_r40); var ctx_r39 = ɵɵnextContext(2); return ctx_r39.close(); });
     ɵɵtext(1, "close");
     ɵɵelementEnd();
 } }
@@ -96,15 +97,15 @@ function UmbraToastComponent_ng_container_0_Template(rf, ctx) { if (rf & 1) {
     ɵɵelementEnd();
     ɵɵelementContainerEnd();
 } if (rf & 2) {
-    var ctx_r19 = ɵɵnextContext();
+    var ctx_r30 = ɵɵnextContext();
     ɵɵselect(1);
-    ɵɵproperty("ngIf", ctx_r19.data.timeout);
+    ɵɵproperty("ngIf", ctx_r30.data.timeout);
     ɵɵselect(7);
-    ɵɵtextInterpolate(ctx_r19.iconType);
+    ɵɵtextInterpolate(ctx_r30.iconType);
     ɵɵselect(10);
-    ɵɵtextInterpolate1(" ", ctx_r19.data.toastData.text, " ");
+    ɵɵtextInterpolate1(" ", ctx_r30.data.toastData.text, " ");
     ɵɵselect(13);
-    ɵɵproperty("ngIf", ctx_r19.data.closable);
+    ɵɵproperty("ngIf", ctx_r30.data.closable);
 } }
 var _c18 = [4, "ngTemplateOutlet", "ngTemplateOutletContext"];
 function UmbraToastComponent_ng_template_1_ng_container_0_Template(rf, ctx) { if (rf & 1) {
@@ -113,8 +114,8 @@ function UmbraToastComponent_ng_template_1_ng_container_0_Template(rf, ctx) { if
 function UmbraToastComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
     ɵɵtemplate(0, UmbraToastComponent_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", _c18);
 } if (rf & 2) {
-    var ctx_r21 = ɵɵnextContext();
-    ɵɵproperty("ngTemplateOutlet", ctx_r21.data.toastData.template)("ngTemplateOutletContext", ctx_r21.data.toastData.templateContext);
+    var ctx_r32 = ɵɵnextContext();
+    ɵɵproperty("ngTemplateOutlet", ctx_r32.data.toastData.template)("ngTemplateOutletContext", ctx_r32.data.toastData.templateContext);
 } }
 var UmbraToastComponent = /** @class */ (function () {
     function UmbraToastComponent(data, toastRef, renderer, umbraToastService, changeDetectorRef) {
@@ -168,8 +169,8 @@ var UmbraToastComponent = /** @class */ (function () {
             ɵɵtemplate(0, UmbraToastComponent_ng_container_0_Template, 14, 4, "ng-container", _c4);
             ɵɵtemplate(1, UmbraToastComponent_ng_template_1_Template, 1, 2, "ng-template", null, _c5, ɵɵtemplateRefExtractor);
         } if (rf & 2) {
-            var _r20 = ɵɵreference(2);
-            ɵɵproperty("ngIf", ctx.data.toastData.text)("ngIfElse", _r20);
+            var _r31 = ɵɵreference(2);
+            ɵɵproperty("ngIf", ctx.data.toastData.text)("ngIfElse", _r31);
         } }, directives: [NgIf, DefaultLayoutDirective, DefaultLayoutAlignDirective, MatIcon, MatProgressBar, NgTemplateOutlet], styles: [".toast[_ngcontent-%COMP%]{background:#fff;border-width:1px;border-style:solid;border-color:#ddd #d6d6d6 #cfcfcf;box-shadow:0 2px 4px rgba(0,0,0,.11);min-height:1em;height:3em}.toast-close-icon[_ngcontent-%COMP%], .toast-data-icon[_ngcontent-%COMP%]{padding:0 .5em}.toast-data-icon[_ngcontent-%COMP%] > mat-icon[_ngcontent-%COMP%]{border-radius:15px;padding:1px;border:1px solid #000}.toast-data-icon-success[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#20b2aa}.toast-data-icon-warning[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#dd8900}.toast-data-icon-info[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#749aa8}.toast-close-icon[_ngcontent-%COMP%]{cursor:pointer}.toast-close-icon-success[_ngcontent-%COMP%]{background-color:#00b173;height:100%;border-left:3px solid #2e8b57}.toast-close-icon-warning[_ngcontent-%COMP%]{background-color:#dd8900;height:100%;border-left:3px solid #f09c00}.toast-close-icon-info[_ngcontent-%COMP%]{background-color:#749aa8;height:100%;border-left:3px solid #557a88}.toast-type-success[_ngcontent-%COMP%]{background-color:green;color:#fff}.toast-text[_ngcontent-%COMP%]{padding:0 .5em}.toast-type-warning[_ngcontent-%COMP%]{background-color:orange;color:#fff}.toast-type-info[_ngcontent-%COMP%]{background-color:#add8e6;color:#fff}"], changeDetection: 0 });
     return UmbraToastComponent;
 }());
@@ -362,41 +363,101 @@ var UmbraToastModule = /** @class */ (function () {
 var _c0$1 = [1, "umbra-messages-inline"];
 var _c1$1 = [3, "ngIf", "ngIfElse"];
 var _c2$1 = ["groupMessageContainer", ""];
-var _c3$1 = ["ngFor", "", 3, "ngForOf"];
-var _c4$1 = [1, "umbra-inline-message"];
+var _c3$1 = ["inlineMessage", ""];
+var _c4$1 = ["ngFor", "", 3, "ngForOf"];
+var _c5$1 = [4, "ngTemplateOutlet", "ngTemplateOutletContext"];
+function UmbraInlineComponent_ng_template_1_ng_template_0_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementContainer(0);
+} }
+var _c6$1 = function (a0) { return { message: a0 }; };
 function UmbraInlineComponent_ng_template_1_ng_template_0_Template(rf, ctx) { if (rf & 1) {
-    ɵɵelementStart(0, "div", _c4$1);
-    ɵɵtext(1);
-    ɵɵelementEnd();
+    ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_ng_container_0_Template, 1, 0, "ng-container", _c5$1);
 } if (rf & 2) {
-    var message_r35 = ctx.$implicit;
-    ɵɵselect(1);
-    ɵɵtextInterpolate1(" ", message_r35["summary"], " ");
+    var message_r48 = ctx.$implicit;
+    ɵɵnextContext(2);
+    var _r45 = ɵɵreference(5);
+    ɵɵproperty("ngTemplateOutlet", _r45)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c6$1, message_r48));
 } }
 function UmbraInlineComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
-    ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_Template, 2, 1, "ng-template", _c3$1);
+    ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_Template, 1, 4, "ng-template", _c4$1);
 } if (rf & 2) {
-    var ctx_r31 = ɵɵnextContext();
-    ɵɵproperty("ngForOf", ctx_r31.umbraMessages);
+    var ctx_r42 = ɵɵnextContext();
+    ɵɵproperty("ngForOf", ctx_r42.umbraMessages);
 } }
-var _c5$1 = [1, "umbra-inline-group-message-container"];
+var _c7$1 = [1, "umbra-inline-group-message-container"];
+function UmbraInlineComponent_ng_template_2_ng_template_1_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementContainer(0);
+} }
 function UmbraInlineComponent_ng_template_2_ng_template_1_Template(rf, ctx) { if (rf & 1) {
-    ɵɵelementStart(0, "div", _c4$1);
+    ɵɵtemplate(0, UmbraInlineComponent_ng_template_2_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", _c5$1);
+} if (rf & 2) {
+    var message_r51 = ctx.$implicit;
+    ɵɵnextContext(2);
+    var _r45 = ɵɵreference(5);
+    ɵɵproperty("ngTemplateOutlet", _r45)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c6$1, message_r51));
+} }
+function UmbraInlineComponent_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "div", _c7$1);
+    ɵɵtemplate(1, UmbraInlineComponent_ng_template_2_ng_template_1_Template, 1, 4, "ng-template", _c4$1);
+    ɵɵelementEnd();
+} if (rf & 2) {
+    var ctx_r44 = ɵɵnextContext();
+    ɵɵselect(1);
+    ɵɵproperty("ngForOf", ctx_r44.umbraMessages);
+} }
+var _c8$1 = [3, "ngClass"];
+var _c9$1 = ["class", "umbra-inline-group-message-icon", 4, "ngIf"];
+var _c10$1 = ["class", "umbra-inline-group-message-title", 4, "ngIf"];
+var _c11$1 = ["class", "umbra-inline-group-message-summary", 4, "ngIf"];
+var _c12$1 = [1, "umbra-inline-group-message-icon"];
+function UmbraInlineComponent_ng_template_4_span_1_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "span", _c12$1);
+    ɵɵelementStart(1, "mat-icon");
+    ɵɵtext(2);
+    ɵɵelementEnd();
+    ɵɵelementEnd();
+} if (rf & 2) {
+    var message_r53 = ɵɵnextContext().message;
+    ɵɵselect(2);
+    ɵɵtextInterpolate(message_r53["icon"]);
+} }
+var _c13$1 = [1, "umbra-inline-group-message-title"];
+function UmbraInlineComponent_ng_template_4_span_2_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "span", _c13$1);
     ɵɵtext(1);
     ɵɵelementEnd();
 } if (rf & 2) {
-    var message_r37 = ctx.$implicit;
+    var message_r53 = ɵɵnextContext().message;
     ɵɵselect(1);
-    ɵɵtextInterpolate1(" ", message_r37["summary"], " ");
+    ɵɵtextInterpolate1("", message_r53["title"], ":");
 } }
-function UmbraInlineComponent_ng_template_2_Template(rf, ctx) { if (rf & 1) {
-    ɵɵelementStart(0, "div", _c5$1);
-    ɵɵtemplate(1, UmbraInlineComponent_ng_template_2_ng_template_1_Template, 2, 1, "ng-template", _c3$1);
+var _c14$1 = [1, "umbra-inline-group-message-summary"];
+function UmbraInlineComponent_ng_template_4_span_3_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "span", _c14$1);
+    ɵɵtext(1);
     ɵɵelementEnd();
 } if (rf & 2) {
-    var ctx_r33 = ɵɵnextContext();
+    var message_r53 = ɵɵnextContext().message;
     ɵɵselect(1);
-    ɵɵproperty("ngForOf", ctx_r33.umbraMessages);
+    ɵɵtextInterpolate1(" ", message_r53["summary"], "");
+} }
+var _c15$1 = function (a0, a1, a2, a3, a4, a5) { return { "umbra-inline-group-message": a0, "umbra-inline-message": a1, "umbra-messaging-error": a2, "umbra-messaging-info": a3, "umbra-messaging-warning": a4, "umbra-messaging-success": a5 }; };
+function UmbraInlineComponent_ng_template_4_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "div", _c8$1);
+    ɵɵtemplate(1, UmbraInlineComponent_ng_template_4_span_1_Template, 3, 1, "span", _c9$1);
+    ɵɵtemplate(2, UmbraInlineComponent_ng_template_4_span_2_Template, 2, 1, "span", _c10$1);
+    ɵɵtemplate(3, UmbraInlineComponent_ng_template_4_span_3_Template, 2, 1, "span", _c11$1);
+    ɵɵelementEnd();
+} if (rf & 2) {
+    var message_r53 = ctx.message;
+    var ctx_r46 = ɵɵnextContext();
+    ɵɵproperty("ngClass", ɵɵpureFunction6(4, _c15$1, ctx_r46.groupMessages, !ctx_r46.groupMessages, message_r53["type"] === "error", message_r53["type"] === "info", message_r53["type"] === "warning", message_r53["type"] === "success"));
+    ɵɵselect(1);
+    ɵɵproperty("ngIf", message_r53["icon"]);
+    ɵɵselect(2);
+    ɵɵproperty("ngIf", message_r53["title"]);
+    ɵɵselect(3);
+    ɵɵproperty("ngIf", message_r53["summary"]);
 } }
 var UmbraInlineComponent = /** @class */ (function () {
     function UmbraInlineComponent() {
@@ -411,16 +472,17 @@ var UmbraInlineComponent = /** @class */ (function () {
         }
     };
     /** @nocollapse */ UmbraInlineComponent.ngFactoryDef = function UmbraInlineComponent_Factory(t) { return new (t || UmbraInlineComponent)(); };
-    /** @nocollapse */ UmbraInlineComponent.ngComponentDef = ɵɵdefineComponent({ type: UmbraInlineComponent, selectors: [["umbra-messaging-inline"]], inputs: { umbraMessages: "umbraMessages", groupMessages: "groupMessages", shouldTimeout: "shouldTimeout", setTimeout: "setTimeout" }, consts: 4, vars: 2, template: function UmbraInlineComponent_Template(rf, ctx) { if (rf & 1) {
+    /** @nocollapse */ UmbraInlineComponent.ngComponentDef = ɵɵdefineComponent({ type: UmbraInlineComponent, selectors: [["umbra-messaging-inline"]], inputs: { umbraMessages: "umbraMessages", groupMessages: "groupMessages", shouldTimeout: "shouldTimeout", setTimeout: "setTimeout" }, consts: 6, vars: 2, template: function UmbraInlineComponent_Template(rf, ctx) { if (rf & 1) {
             ɵɵelementStart(0, "div", _c0$1);
             ɵɵtemplate(1, UmbraInlineComponent_ng_template_1_Template, 1, 1, "ng-template", _c1$1);
             ɵɵtemplate(2, UmbraInlineComponent_ng_template_2_Template, 2, 1, "ng-template", null, _c2$1, ɵɵtemplateRefExtractor);
             ɵɵelementEnd();
+            ɵɵtemplate(4, UmbraInlineComponent_ng_template_4_Template, 4, 11, "ng-template", null, _c3$1, ɵɵtemplateRefExtractor);
         } if (rf & 2) {
-            var _r32 = ɵɵreference(3);
+            var _r43 = ɵɵreference(3);
             ɵɵselect(1);
-            ɵɵproperty("ngIf", ctx.shouldTimeout)("ngIfElse", _r32);
-        } }, directives: [NgIf, NgForOf], styles: [""], changeDetection: 0 });
+            ɵɵproperty("ngIf", !ctx.groupMessages)("ngIfElse", _r43);
+        } }, directives: [NgIf, NgForOf, NgTemplateOutlet, DefaultClassDirective, NgClass, MatIcon], styles: [".umbra-inline-message[_ngcontent-%COMP%]{border-radius:5px;padding:10px;margin-top:2px;border:1px solid #000}.umbra-inline-group-message-container[_ngcontent-%COMP%]{border-radius:5px;border:1px solid #000}.umbra-inline-group-message[_ngcontent-%COMP%]{padding:10px}.umbra-inline-group-message-title[_ngcontent-%COMP%]{font-weight:700}.umbra-messaging-error[_ngcontent-%COMP%]{background-color:red}.umbra-messaging-warning[_ngcontent-%COMP%]{background-color:orange}.umbra-messaging-success[_ngcontent-%COMP%]{background-color:green}.umbra-messaging-info[_ngcontent-%COMP%]{background-color:#add8e6}"], changeDetection: 0 });
     return UmbraInlineComponent;
 }());
 /*@__PURE__*/ ɵsetClassMetadata(UmbraInlineComponent, [{

@@ -31,14 +31,14 @@ var _c16 = [3, "value"];
 function UmbraToastComponent_ng_container_0_mat_progress_bar_1_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelement(0, "mat-progress-bar", _c16);
 } if (rf & 2) {
-    var ctx_r22 = i0.ɵɵnextContext(2);
-    i0.ɵɵproperty("value", ctx_r22.progressBarValue);
+    var ctx_r33 = i0.ɵɵnextContext(2);
+    i0.ɵɵproperty("value", ctx_r33.progressBarValue);
 } }
 var _c17 = [3, "click"];
 function UmbraToastComponent_ng_container_0_mat_icon_13_Template(rf, ctx) { if (rf & 1) {
-    var _r29 = i0.ɵɵgetCurrentView();
+    var _r40 = i0.ɵɵgetCurrentView();
     i0.ɵɵelementStart(0, "mat-icon", _c17);
-    i0.ɵɵlistener("click", function UmbraToastComponent_ng_container_0_mat_icon_13_Template_mat_icon_click_0_listener($event) { i0.ɵɵrestoreView(_r29); var ctx_r28 = i0.ɵɵnextContext(2); return ctx_r28.close(); });
+    i0.ɵɵlistener("click", function UmbraToastComponent_ng_container_0_mat_icon_13_Template_mat_icon_click_0_listener($event) { i0.ɵɵrestoreView(_r40); var ctx_r39 = i0.ɵɵnextContext(2); return ctx_r39.close(); });
     i0.ɵɵtext(1, "close");
     i0.ɵɵelementEnd();
 } }
@@ -60,15 +60,15 @@ function UmbraToastComponent_ng_container_0_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵelementEnd();
     i0.ɵɵelementContainerEnd();
 } if (rf & 2) {
-    var ctx_r19 = i0.ɵɵnextContext();
+    var ctx_r30 = i0.ɵɵnextContext();
     i0.ɵɵselect(1);
-    i0.ɵɵproperty("ngIf", ctx_r19.data.timeout);
+    i0.ɵɵproperty("ngIf", ctx_r30.data.timeout);
     i0.ɵɵselect(7);
-    i0.ɵɵtextInterpolate(ctx_r19.iconType);
+    i0.ɵɵtextInterpolate(ctx_r30.iconType);
     i0.ɵɵselect(10);
-    i0.ɵɵtextInterpolate1(" ", ctx_r19.data.toastData.text, " ");
+    i0.ɵɵtextInterpolate1(" ", ctx_r30.data.toastData.text, " ");
     i0.ɵɵselect(13);
-    i0.ɵɵproperty("ngIf", ctx_r19.data.closable);
+    i0.ɵɵproperty("ngIf", ctx_r30.data.closable);
 } }
 var _c18 = [4, "ngTemplateOutlet", "ngTemplateOutletContext"];
 function UmbraToastComponent_ng_template_1_ng_container_0_Template(rf, ctx) { if (rf & 1) {
@@ -77,8 +77,8 @@ function UmbraToastComponent_ng_template_1_ng_container_0_Template(rf, ctx) { if
 function UmbraToastComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
     i0.ɵɵtemplate(0, UmbraToastComponent_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", _c18);
 } if (rf & 2) {
-    var ctx_r21 = i0.ɵɵnextContext();
-    i0.ɵɵproperty("ngTemplateOutlet", ctx_r21.data.toastData.template)("ngTemplateOutletContext", ctx_r21.data.toastData.templateContext);
+    var ctx_r32 = i0.ɵɵnextContext();
+    i0.ɵɵproperty("ngTemplateOutlet", ctx_r32.data.toastData.template)("ngTemplateOutletContext", ctx_r32.data.toastData.templateContext);
 } }
 var UmbraToastComponent = /** @class */ (function () {
     function UmbraToastComponent(data, toastRef, renderer, umbraToastService, changeDetectorRef) {
@@ -132,8 +132,8 @@ var UmbraToastComponent = /** @class */ (function () {
             i0.ɵɵtemplate(0, UmbraToastComponent_ng_container_0_Template, 14, 4, "ng-container", _c4);
             i0.ɵɵtemplate(1, UmbraToastComponent_ng_template_1_Template, 1, 2, "ng-template", null, _c5, i0.ɵɵtemplateRefExtractor);
         } if (rf & 2) {
-            var _r20 = i0.ɵɵreference(2);
-            i0.ɵɵproperty("ngIf", ctx.data.toastData.text)("ngIfElse", _r20);
+            var _r31 = i0.ɵɵreference(2);
+            i0.ɵɵproperty("ngIf", ctx.data.toastData.text)("ngIfElse", _r31);
         } }, directives: [i4.NgIf, i5.DefaultLayoutDirective, i5.DefaultLayoutAlignDirective, i6.MatIcon, i6.MatProgressBar, i4.NgTemplateOutlet], styles: [".toast[_ngcontent-%COMP%]{background:#fff;border-width:1px;border-style:solid;border-color:#ddd #d6d6d6 #cfcfcf;box-shadow:0 2px 4px rgba(0,0,0,.11);min-height:1em;height:3em}.toast-close-icon[_ngcontent-%COMP%], .toast-data-icon[_ngcontent-%COMP%]{padding:0 .5em}.toast-data-icon[_ngcontent-%COMP%] > mat-icon[_ngcontent-%COMP%]{border-radius:15px;padding:1px;border:1px solid #000}.toast-data-icon-success[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#20b2aa}.toast-data-icon-warning[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#dd8900}.toast-data-icon-info[_ngcontent-%COMP%] > .mat-icon[_ngcontent-%COMP%]{background-color:#749aa8}.toast-close-icon[_ngcontent-%COMP%]{cursor:pointer}.toast-close-icon-success[_ngcontent-%COMP%]{background-color:#00b173;height:100%;border-left:3px solid #2e8b57}.toast-close-icon-warning[_ngcontent-%COMP%]{background-color:#dd8900;height:100%;border-left:3px solid #f09c00}.toast-close-icon-info[_ngcontent-%COMP%]{background-color:#749aa8;height:100%;border-left:3px solid #557a88}.toast-type-success[_ngcontent-%COMP%]{background-color:green;color:#fff}.toast-text[_ngcontent-%COMP%]{padding:0 .5em}.toast-type-warning[_ngcontent-%COMP%]{background-color:orange;color:#fff}.toast-type-info[_ngcontent-%COMP%]{background-color:#add8e6;color:#fff}"], changeDetection: 0 });
     return UmbraToastComponent;
 }());

@@ -1,1 +1,1 @@
-export declare type InlineType = 'warning' | 'info' | 'success';
+export declare type InlineType = 'warning' | 'info' | 'success' | 'error';

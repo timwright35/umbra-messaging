@@ -14,13 +14,28 @@ export class AppComponent {
   constructor(private umbraToastService: UmbraToastService) {
     this.umbraMessages.push({
       title: 'Success',
-      summary: 'AHHHHHH',
-      type: 'success'
+      summary: 'You did it!',
+      type: 'success',
+      icon: 'home',
+      timeout: 3000
     });
     this.umbraMessages.push({
       title: 'Error',
-      summary: 'NOOOO',
-      type: 'warning'
+      summary: 'It all fail apart!',
+      type: 'error',
+      icon: 'home'
+    });
+    this.umbraMessages.push({
+      title: 'Warning',
+      summary: 'You are on the edge!',
+      type: 'warning',
+      icon: 'home'
+    });
+    this.umbraMessages.push({
+      title: 'info',
+      summary: 'This is a neutral message.',
+      type: 'info',
+      icon: 'home'
     });
   }
 

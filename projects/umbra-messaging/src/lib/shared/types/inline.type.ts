@@ -1,1 +1,1 @@
-export type InlineType = 'warning' | 'info' | 'success';
+export type InlineType = 'warning' | 'info' | 'success' | 'error';

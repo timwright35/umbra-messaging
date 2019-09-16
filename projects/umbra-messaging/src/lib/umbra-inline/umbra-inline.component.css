@@ -1,15 +1,35 @@
 .umbra-inline-message{
-    background-color: green;
+    border-radius: 5px;
     padding: 10px;
     margin-top: 2px;
+    border: 1px solid black;
 }
 
 .umbra-inline-group-message-container {
-    background-color: bisque;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.umbra-inline-group-message {
     padding: 10px;
-    margin: 2px;
 }
 
 .umbra-inline-group-message-title{
     font-weight: bold;
+}
+
+.umbra-messaging-error {
+    background-color: red;
+}
+
+.umbra-messaging-warning {
+    background-color: orange;
+}
+
+.umbra-messaging-success {
+    background-color: green;
+}
+
+.umbra-messaging-info {
+    background-color: lightblue;
 }

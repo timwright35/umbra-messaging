@@ -5,4 +5,5 @@ export class InlineMessage {
     summary: string;
     icon?: string;
     type: InlineType;
+    timeout?: number;
 }

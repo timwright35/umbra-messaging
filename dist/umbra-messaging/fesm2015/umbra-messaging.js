@@ -1,12 +1,13 @@
-import { ɵɵelement, ɵɵnextContext, ɵɵproperty, ɵɵgetCurrentView, ɵɵelementStart, ɵɵlistener, ɵɵrestoreView, ɵɵtext, ɵɵelementEnd, ɵɵelementContainerStart, ɵɵtemplate, ɵɵelementContainerEnd, ɵɵselect, ɵɵtextInterpolate, ɵɵtextInterpolate1, ɵɵelementContainer, ɵɵdirectiveInject, Renderer2, ChangeDetectorRef, ɵɵdefineComponent, ɵɵviewQuery, ɵɵqueryRefresh, ɵɵloadQuery, ɵɵtemplateRefExtractor, ɵɵreference, ɵsetClassMetadata, Component, ChangeDetectionStrategy, ViewChild, ɵɵdefineInjectable, ɵɵinject, Injector, Injectable, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule, Input } from '@angular/core';
+import { ɵɵelement, ɵɵnextContext, ɵɵproperty, ɵɵgetCurrentView, ɵɵelementStart, ɵɵlistener, ɵɵrestoreView, ɵɵtext, ɵɵelementEnd, ɵɵelementContainerStart, ɵɵtemplate, ɵɵelementContainerEnd, ɵɵselect, ɵɵtextInterpolate, ɵɵtextInterpolate1, ɵɵelementContainer, ɵɵdirectiveInject, Renderer2, ChangeDetectorRef, ɵɵdefineComponent, ɵɵviewQuery, ɵɵqueryRefresh, ɵɵloadQuery, ɵɵtemplateRefExtractor, ɵɵreference, ɵsetClassMetadata, Component, ChangeDetectionStrategy, ViewChild, ɵɵdefineInjectable, ɵɵinject, Injector, Injectable, ɵɵdefineNgModule, ɵɵdefineInjector, ɵɵsetNgModuleScope, NgModule, ɵɵpureFunction1, ɵɵpureFunction6, Input } from '@angular/core';
 import { Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { ComponentPortal, PortalInjector } from '@angular/cdk/portal';
 import { isDefAndNotNull as isDefAndNotNull$1 } from 'lib/lib/shared/classes/common-functions';
 import { interval } from 'rxjs';
-import { NgIf, NgTemplateOutlet, CommonModule, NgForOf } from '@angular/common';
+import { NgIf, NgTemplateOutlet, CommonModule, NgForOf, NgClass } from '@angular/common';
 import { DefaultLayoutDirective, DefaultLayoutAlignDirective } from '@angular/flex-layout/flex';
 import { MatIcon, MatProgressBar, MatIconModule, MatProgressBarModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { DefaultClassDirective } from '@angular/flex-layout/extended';
 
 class ToastRef {
     constructor(overlay) {
@@ -348,41 +349,101 @@ class UmbraToastModule {
 const _c0$1 = [1, "umbra-messages-inline"];
 const _c1$1 = [3, "ngIf", "ngIfElse"];
 const _c2$1 = ["groupMessageContainer", ""];
-const _c3$1 = ["ngFor", "", 3, "ngForOf"];
-const _c4$1 = [1, "umbra-inline-message"];
+const _c3$1 = ["inlineMessage", ""];
+const _c4$1 = ["ngFor", "", 3, "ngForOf"];
+const _c5$1 = [4, "ngTemplateOutlet", "ngTemplateOutletContext"];
+function UmbraInlineComponent_ng_template_1_ng_template_0_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementContainer(0);
+} }
+const _c6$1 = function (a0) { return { message: a0 }; };
 function UmbraInlineComponent_ng_template_1_ng_template_0_Template(rf, ctx) { if (rf & 1) {
-    ɵɵelementStart(0, "div", _c4$1);
-    ɵɵtext(1);
-    ɵɵelementEnd();
+    ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_ng_container_0_Template, 1, 0, "ng-container", _c5$1);
 } if (rf & 2) {
-    const message_r16 = ctx.$implicit;
-    ɵɵselect(1);
-    ɵɵtextInterpolate1(" ", message_r16["summary"], " ");
+    const message_r18 = ctx.$implicit;
+    ɵɵnextContext(2);
+    const _r15 = ɵɵreference(5);
+    ɵɵproperty("ngTemplateOutlet", _r15)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c6$1, message_r18));
 } }
 function UmbraInlineComponent_ng_template_1_Template(rf, ctx) { if (rf & 1) {
-    ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_Template, 2, 1, "ng-template", _c3$1);
+    ɵɵtemplate(0, UmbraInlineComponent_ng_template_1_ng_template_0_Template, 1, 4, "ng-template", _c4$1);
 } if (rf & 2) {
     const ctx_r12 = ɵɵnextContext();
     ɵɵproperty("ngForOf", ctx_r12.umbraMessages);
 } }
-const _c5$1 = [1, "umbra-inline-group-message-container"];
+const _c7$1 = [1, "umbra-inline-group-message-container"];
+function UmbraInlineComponent_ng_template_2_ng_template_1_ng_container_0_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementContainer(0);
+} }
 function UmbraInlineComponent_ng_template_2_ng_template_1_Template(rf, ctx) { if (rf & 1) {
-    ɵɵelementStart(0, "div", _c4$1);
-    ɵɵtext(1);
-    ɵɵelementEnd();
+    ɵɵtemplate(0, UmbraInlineComponent_ng_template_2_ng_template_1_ng_container_0_Template, 1, 0, "ng-container", _c5$1);
 } if (rf & 2) {
-    const message_r18 = ctx.$implicit;
-    ɵɵselect(1);
-    ɵɵtextInterpolate1(" ", message_r18["summary"], " ");
+    const message_r21 = ctx.$implicit;
+    ɵɵnextContext(2);
+    const _r15 = ɵɵreference(5);
+    ɵɵproperty("ngTemplateOutlet", _r15)("ngTemplateOutletContext", ɵɵpureFunction1(2, _c6$1, message_r21));
 } }
 function UmbraInlineComponent_ng_template_2_Template(rf, ctx) { if (rf & 1) {
-    ɵɵelementStart(0, "div", _c5$1);
-    ɵɵtemplate(1, UmbraInlineComponent_ng_template_2_ng_template_1_Template, 2, 1, "ng-template", _c3$1);
+    ɵɵelementStart(0, "div", _c7$1);
+    ɵɵtemplate(1, UmbraInlineComponent_ng_template_2_ng_template_1_Template, 1, 4, "ng-template", _c4$1);
     ɵɵelementEnd();
 } if (rf & 2) {
     const ctx_r14 = ɵɵnextContext();
     ɵɵselect(1);
     ɵɵproperty("ngForOf", ctx_r14.umbraMessages);
+} }
+const _c8$1 = [3, "ngClass"];
+const _c9$1 = ["class", "umbra-inline-group-message-icon", 4, "ngIf"];
+const _c10$1 = ["class", "umbra-inline-group-message-title", 4, "ngIf"];
+const _c11$1 = ["class", "umbra-inline-group-message-summary", 4, "ngIf"];
+const _c12$1 = [1, "umbra-inline-group-message-icon"];
+function UmbraInlineComponent_ng_template_4_span_1_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "span", _c12$1);
+    ɵɵelementStart(1, "mat-icon");
+    ɵɵtext(2);
+    ɵɵelementEnd();
+    ɵɵelementEnd();
+} if (rf & 2) {
+    const message_r23 = ɵɵnextContext().message;
+    ɵɵselect(2);
+    ɵɵtextInterpolate(message_r23["icon"]);
+} }
+const _c13$1 = [1, "umbra-inline-group-message-title"];
+function UmbraInlineComponent_ng_template_4_span_2_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "span", _c13$1);
+    ɵɵtext(1);
+    ɵɵelementEnd();
+} if (rf & 2) {
+    const message_r23 = ɵɵnextContext().message;
+    ɵɵselect(1);
+    ɵɵtextInterpolate1("", message_r23["title"], ":");
+} }
+const _c14$1 = [1, "umbra-inline-group-message-summary"];
+function UmbraInlineComponent_ng_template_4_span_3_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "span", _c14$1);
+    ɵɵtext(1);
+    ɵɵelementEnd();
+} if (rf & 2) {
+    const message_r23 = ɵɵnextContext().message;
+    ɵɵselect(1);
+    ɵɵtextInterpolate1(" ", message_r23["summary"], "");
+} }
+const _c15$1 = function (a0, a1, a2, a3, a4, a5) { return { "umbra-inline-group-message": a0, "umbra-inline-message": a1, "umbra-messaging-error": a2, "umbra-messaging-info": a3, "umbra-messaging-warning": a4, "umbra-messaging-success": a5 }; };
+function UmbraInlineComponent_ng_template_4_Template(rf, ctx) { if (rf & 1) {
+    ɵɵelementStart(0, "div", _c8$1);
+    ɵɵtemplate(1, UmbraInlineComponent_ng_template_4_span_1_Template, 3, 1, "span", _c9$1);
+    ɵɵtemplate(2, UmbraInlineComponent_ng_template_4_span_2_Template, 2, 1, "span", _c10$1);
+    ɵɵtemplate(3, UmbraInlineComponent_ng_template_4_span_3_Template, 2, 1, "span", _c11$1);
+    ɵɵelementEnd();
+} if (rf & 2) {
+    const message_r23 = ctx.message;
+    const ctx_r16 = ɵɵnextContext();
+    ɵɵproperty("ngClass", ɵɵpureFunction6(4, _c15$1, ctx_r16.groupMessages, !ctx_r16.groupMessages, message_r23["type"] === "error", message_r23["type"] === "info", message_r23["type"] === "warning", message_r23["type"] === "success"));
+    ɵɵselect(1);
+    ɵɵproperty("ngIf", message_r23["icon"]);
+    ɵɵselect(2);
+    ɵɵproperty("ngIf", message_r23["title"]);
+    ɵɵselect(3);
+    ɵɵproperty("ngIf", message_r23["summary"]);
 } }
 class UmbraInlineComponent {
     constructor() {
@@ -398,16 +459,17 @@ class UmbraInlineComponent {
     }
 }
 /** @nocollapse */ UmbraInlineComponent.ngFactoryDef = function UmbraInlineComponent_Factory(t) { return new (t || UmbraInlineComponent)(); };
-/** @nocollapse */ UmbraInlineComponent.ngComponentDef = ɵɵdefineComponent({ type: UmbraInlineComponent, selectors: [["umbra-messaging-inline"]], inputs: { umbraMessages: "umbraMessages", groupMessages: "groupMessages", shouldTimeout: "shouldTimeout", setTimeout: "setTimeout" }, consts: 4, vars: 2, template: function UmbraInlineComponent_Template(rf, ctx) { if (rf & 1) {
+/** @nocollapse */ UmbraInlineComponent.ngComponentDef = ɵɵdefineComponent({ type: UmbraInlineComponent, selectors: [["umbra-messaging-inline"]], inputs: { umbraMessages: "umbraMessages", groupMessages: "groupMessages", shouldTimeout: "shouldTimeout", setTimeout: "setTimeout" }, consts: 6, vars: 2, template: function UmbraInlineComponent_Template(rf, ctx) { if (rf & 1) {
         ɵɵelementStart(0, "div", _c0$1);
         ɵɵtemplate(1, UmbraInlineComponent_ng_template_1_Template, 1, 1, "ng-template", _c1$1);
         ɵɵtemplate(2, UmbraInlineComponent_ng_template_2_Template, 2, 1, "ng-template", null, _c2$1, ɵɵtemplateRefExtractor);
         ɵɵelementEnd();
+        ɵɵtemplate(4, UmbraInlineComponent_ng_template_4_Template, 4, 11, "ng-template", null, _c3$1, ɵɵtemplateRefExtractor);
     } if (rf & 2) {
         const _r13 = ɵɵreference(3);
         ɵɵselect(1);
-        ɵɵproperty("ngIf", ctx.shouldTimeout)("ngIfElse", _r13);
-    } }, directives: [NgIf, NgForOf], styles: [""], changeDetection: 0 });
+        ɵɵproperty("ngIf", !ctx.groupMessages)("ngIfElse", _r13);
+    } }, directives: [NgIf, NgForOf, NgTemplateOutlet, DefaultClassDirective, NgClass, MatIcon], styles: [".umbra-inline-message[_ngcontent-%COMP%]{border-radius:5px;padding:10px;margin-top:2px;border:1px solid #000}.umbra-inline-group-message-container[_ngcontent-%COMP%]{border-radius:5px;border:1px solid #000}.umbra-inline-group-message[_ngcontent-%COMP%]{padding:10px}.umbra-inline-group-message-title[_ngcontent-%COMP%]{font-weight:700}.umbra-messaging-error[_ngcontent-%COMP%]{background-color:red}.umbra-messaging-warning[_ngcontent-%COMP%]{background-color:orange}.umbra-messaging-success[_ngcontent-%COMP%]{background-color:green}.umbra-messaging-info[_ngcontent-%COMP%]{background-color:#add8e6}"], changeDetection: 0 });
 /*@__PURE__*/ ɵsetClassMetadata(UmbraInlineComponent, [{
         type: Component,
         args: [{

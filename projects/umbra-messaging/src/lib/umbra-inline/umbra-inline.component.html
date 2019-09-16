@@ -14,8 +14,18 @@
 </div>
 
 <ng-template #inlineMessage let-message="message">
-    <div [ngClass]="{'umbra-inline-group-message': groupMessages, 'umbra-inline-message': !groupMessages}">
+    <div [ngClass]="{
+     'umbra-inline-group-message': groupMessages,
+     'umbra-inline-message': !groupMessages,
+     'umbra-messaging-error': message['type'] === 'error',
+     'umbra-messaging-info': message['type'] === 'info',
+     'umbra-messaging-warning': message['type'] === 'warning',
+     'umbra-messaging-success': message['type'] === 'success'
+     }">
+        <span *ngIf="message['icon']" class="umbra-inline-group-message-icon">
+            <mat-icon>{{ message['icon'] }}</mat-icon>
+        </span>
         <span *ngIf="message['title']" class="umbra-inline-group-message-title">{{ message['title'] }}:</span>
-        {{ message['summary'] }}
+        <span *ngIf="message['summary']" class="umbra-inline-group-message-summary"> {{ message['summary'] }}</span>
     </div>
 </ng-template>
