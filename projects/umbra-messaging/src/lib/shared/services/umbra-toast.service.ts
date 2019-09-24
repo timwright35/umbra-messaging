@@ -108,7 +108,6 @@ export class UmbraToastService {
                 if (this.openTopToasts.length > 0) {
                     foundCollection = this.openTopToasts.filter(
                         (toastRefCollection: ToastRefCollection) => {
-                            console.log('2', toastRefCollection, toastConfig);
                             if (toastRefCollection.horizontalPosition ===
                                 toastConfig.horizontalPosition &&
                                 toastRefCollection.verticalPosition ===
@@ -141,7 +140,6 @@ export class UmbraToastService {
                 if (this.openBottomToasts.length > 0) {
                     foundCollection = this.openBottomToasts.filter(
                         (toastRefCollection: ToastRefCollection) => {
-                            console.log('1', toastRefCollection, toastConfig);
                             if (toastRefCollection.horizontalPosition ===
                                 toastConfig.horizontalPosition &&
                                 toastRefCollection.verticalPosition ===
