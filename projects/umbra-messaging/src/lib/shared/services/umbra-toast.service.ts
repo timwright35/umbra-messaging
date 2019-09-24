@@ -16,10 +16,16 @@ import {
 import { UmbraToastComponent } from '../../umbra-toast/umbra-toast.component';
 import { isDefAndNotNull } from '../classes/common-functions';
 
+export interface ToastRefCollection {
+    verticalPosition: string;
+    horizontalPosition: string;
+    toastRef: ToastRef;
+}
+
 @Injectable()
 export class UmbraToastService {
-    private openTopToasts: Array<ToastRef> = [];
-    private openBottomToasts: Array<ToastRef> = [];
+    private openTopToasts: Array<ToastRefCollection> = [];
+    private openBottomToasts: Array<ToastRefCollection> = [];
 
     constructor(private overlay: Overlay,
                 private parentInjector: Injector) {}
@@ -34,11 +40,19 @@ export class UmbraToastService {
         const toastRef = new ToastRef(overlayRef);
 
         if (toastConfig.verticalPosition === 'top') {
-            this.openTopToasts.push(toastRef);
+            this.openTopToasts.push({
+                verticalPosition: toastConfig.verticalPosition,
+                horizontalPosition: toastConfig.horizontalPosition,
+                toastRef
+            });
         }
 
         if (toastConfig.verticalPosition === 'bottom') {
-            this.openBottomToasts.push(toastRef);
+            this.openBottomToasts.push({
+                verticalPosition: toastConfig.verticalPosition,
+                horizontalPosition: toastConfig.horizontalPosition,
+                toastRef
+            });
         }
 
         const injector = this.getInjector(toastConfig, toastRef,
@@ -51,23 +65,26 @@ export class UmbraToastService {
     }
 
     closeToast(toastRef: ToastRef) {
-        this.openTopToasts = this.openTopToasts.filter((openToast: ToastRef) => {
-            if (openToast !== toastRef) {
-                return openToast;
-            }
-        });
-        this.openBottomToasts = this.openBottomToasts.filter((openToast: ToastRef) => {
-            if (openToast !== toastRef) {
-                return openToast;
-            }
-        });
+        this.openTopToasts =
+            this.openTopToasts.filter((openToastCollection: ToastRefCollection) => {
+                if (openToastCollection.toastRef !== toastRef) {
+                    return openToastCollection;
+                }
+            });
+        this.openBottomToasts =
+            this.openBottomToasts.filter((openToastCollection: ToastRefCollection) => {
+                if (openToastCollection.toastRef !== toastRef) {
+                    return openToastCollection;
+                }
+            });
         toastRef.close();
     }
 
     closeAllToasts() {
-        [...this.openTopToasts, ...this.openBottomToasts].forEach((toastRef: ToastRef) => {
-            toastRef.close();
-        });
+        [ ...this.openTopToasts, ...this.openBottomToasts ].forEach(
+            (toastRefCollection: ToastRefCollection) => {
+                toastRefCollection.toastRef.close();
+            });
         this.openBottomToasts = [];
         this.openTopToasts = [];
     }
@@ -81,6 +98,7 @@ export class UmbraToastService {
 
     private getOverlayPosition(toastConfig: ToastConfig) {
         const overlayPosition = this.overlay.position().global();
+        let foundCollection: Array<ToastRefCollection> = [];
         if (toastConfig.verticalPosition === 'center') {
             overlayPosition.centerVertically();
         } else {
@@ -88,17 +106,31 @@ export class UmbraToastService {
                 let lastTopToastHeight = 0;
                 let lastTopToast: ToastRef;
                 if (this.openTopToasts.length > 0) {
-                    lastTopToast = this.openTopToasts[this.openTopToasts.length - 1];
+                    foundCollection = this.openTopToasts.filter(
+                        (toastRefCollection: ToastRefCollection) => {
+                            console.log('2', toastRefCollection, toastConfig);
+                            if (toastRefCollection.horizontalPosition ===
+                                toastConfig.horizontalPosition &&
+                                toastRefCollection.verticalPosition ===
+                                toastConfig.verticalPosition) {
+                                return toastRefCollection;
+                            }
+                        });
+                    if (foundCollection.length > 0) {
+                        lastTopToast =
+                            foundCollection[foundCollection.length - 1].toastRef;
+                    }
                 }
                 if (isDefAndNotNull(lastTopToast)) {
                     lastTopToastHeight = lastTopToast.getPosition().height;
                 }
                 let calculatedPosition: number;
                 if (toastConfig.position.top) {
-                    calculatedPosition = (this.openTopToasts.length * lastTopToastHeight) +
+                    calculatedPosition =
+                        (foundCollection.length * lastTopToastHeight) +
                         toastConfig.position.top;
                 } else {
-                    calculatedPosition = (this.openTopToasts.length * lastTopToastHeight);
+                    calculatedPosition = (foundCollection.length * lastTopToastHeight);
                 }
                 overlayPosition.top(calculatedPosition + 'px');
             }
@@ -107,17 +139,32 @@ export class UmbraToastService {
                 let lastBottomToastHeight = 0;
                 let lastBottomToast: ToastRef;
                 if (this.openBottomToasts.length > 0) {
-                    lastBottomToast = this.openBottomToasts[this.openBottomToasts.length - 1];
+                    foundCollection = this.openBottomToasts.filter(
+                        (toastRefCollection: ToastRefCollection) => {
+                            console.log('1', toastRefCollection, toastConfig);
+                            if (toastRefCollection.horizontalPosition ===
+                                toastConfig.horizontalPosition &&
+                                toastRefCollection.verticalPosition ===
+                                toastConfig.verticalPosition) {
+                                return toastRefCollection;
+                            }
+                        });
+                    if (foundCollection.length > 0) {
+                        lastBottomToast =
+                            foundCollection[foundCollection.length - 1].toastRef;
+                    }
                 }
                 if (isDefAndNotNull(lastBottomToast)) {
                     lastBottomToastHeight = lastBottomToast.getPosition().height;
                 }
                 let calculatedPosition: number;
                 if (toastConfig.position.bottom) {
-                    calculatedPosition = (this.openBottomToasts.length * lastBottomToastHeight) +
+                    calculatedPosition =
+                        (foundCollection.length * lastBottomToastHeight) +
                         toastConfig.position.bottom;
                 } else {
-                    calculatedPosition = (this.openBottomToasts.length * lastBottomToastHeight);
+                    calculatedPosition =
+                        (foundCollection.length * lastBottomToastHeight);
                 }
                 overlayPosition.bottom(calculatedPosition + 'px');
             }

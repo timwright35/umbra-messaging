@@ -2,30 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8757e510-ca85-4eab-a318-0fabcd0c8da2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.firebase/hosting.ZGlzdFx1bWJyYQ.cache" beforeDir="false" afterPath="$PROJECT_DIR$/.firebase/hosting.ZGlzdFx1bWJyYQ.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/bundles/umbra-messaging.umd.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/bundles/umbra-messaging.umd.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/bundles/umbra-messaging.umd.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/bundles/umbra-messaging.umd.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/bundles/umbra-messaging.umd.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/bundles/umbra-messaging.umd.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/bundles/umbra-messaging.umd.min.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/bundles/umbra-messaging.umd.min.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/esm2015/lib/shared/classes/inline-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/esm2015/lib/shared/classes/inline-message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/esm2015/lib/shared/types/inline.type.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/esm2015/lib/shared/types/inline.type.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/esm2015/lib/umbra-inline/umbra-inline.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/esm2015/lib/umbra-inline/umbra-inline.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/esm5/lib/shared/classes/inline-message.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/esm5/lib/shared/classes/inline-message.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/esm5/lib/shared/types/inline.type.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/esm5/lib/shared/types/inline.type.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/esm5/lib/umbra-inline/umbra-inline.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/esm5/lib/umbra-inline/umbra-inline.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/esm5/lib/umbra-toast/umbra-toast.component.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/esm5/lib/umbra-toast/umbra-toast.component.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/fesm2015/umbra-messaging.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/fesm2015/umbra-messaging.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/fesm2015/umbra-messaging.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/fesm2015/umbra-messaging.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/fesm5/umbra-messaging.js" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/fesm5/umbra-messaging.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/fesm5/umbra-messaging.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/fesm5/umbra-messaging.js.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/lib/shared/classes/inline-message.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/lib/shared/classes/inline-message.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/umbra-messaging/lib/shared/types/inline.type.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/dist/umbra-messaging/lib/shared/types/inline.type.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/shared/classes/inline-message.ts" beforeDir="false" afterPath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/shared/classes/inline-message.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/shared/types/inline.type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/shared/types/inline.type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/shared/services/umbra-toast.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/shared/services/umbra-toast.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/umbra-inline/umbra-inline.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/umbra-inline/umbra-inline.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/umbra-inline/umbra-inline.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/umbra-inline/umbra-inline.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/umbra-inline/umbra-inline.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/projects/umbra-messaging/src/lib/umbra-inline/umbra-inline.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +51,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.deploy.options" />
+    <property name="settings.editor.selected.configurable" value="MTConfigurable" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
@@ -131,7 +111,8 @@
       <workItem from="1566779326538" duration="9761000" />
       <workItem from="1566858815267" duration="5296000" />
       <workItem from="1567888003127" duration="2706000" />
-      <workItem from="1568592052045" duration="1751000" />
+      <workItem from="1568592052045" duration="2118000" />
+      <workItem from="1569287252518" duration="1441000" />
     </task>
     <servers />
   </component>

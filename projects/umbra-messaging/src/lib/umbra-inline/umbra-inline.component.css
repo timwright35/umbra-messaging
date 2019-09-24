@@ -14,22 +14,33 @@
     padding: 10px;
 }
 
+.umbra-inline-group-message-icon {
+    justify-content: center;
+    vertical-align: middle;
+    padding-right: 10px;
+}
+
 .umbra-inline-group-message-title{
     font-weight: bold;
+    text-transform: uppercase;
 }
 
 .umbra-messaging-error {
-    background-color: red;
+    background-color: #ff5654;
+    color: white;
 }
 
 .umbra-messaging-warning {
-    background-color: orange;
+    background-color: #ffb131;
+    color: black;
 }
 
 .umbra-messaging-success {
-    background-color: green;
+    background-color: #118052;
+    color: white;
 }
 
 .umbra-messaging-info {
     background-color: lightblue;
+    color: black;
 }
